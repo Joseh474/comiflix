@@ -1,0 +1,199 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Comiflix - Get in Touch</title>
+    <meta name="description" content="Reach out to Comiflix for collaborations, feedback, press, or general inquiries.">
+    <meta name="keywords" content="Comiflix contact, inquiries, newsletter">
+     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://via.placeholder.com/32?text=CF" type="image/x-icon">
+</head>
+<body class="dark-mode">
+    <!-- Top Header -->
+    <header class="top-header">
+        <div class="container">
+            <span class="email">josehmuia474@gmail.com</span>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                <a href="#" aria-label="Patreon"><i class="fab fa-patreon"></i></a>
+            </div>
+            <button class="login-btn" id="loginBtn">Login</button>
+        </div>
+    </header>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>Comiflix</h1>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="episodes.html">Episodes</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="merch.html">Merch</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search episodes...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                <button id="themeToggle" class="theme-toggle">🌙</button>
+                <button id="cartBtn" class="cart-btn"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></button>
+                <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h3>Login to Comiflix</h3>
+            <form class="login-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <a href="#" class="forgot-pw">Forgot Password?</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Connect with Us</h1>
+            <p>Whether it's a collaboration pitch, feedback, or just a cosmic thought, we're all ears (and algorithms).</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-form-container">
+                    <h2>Send a Message</h2>
+                    <form class="contact-form" id="contactForm">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <select name="subject" required>
+                            <option value="">Select Subject</option>
+                            <option value="collaboration">Collaboration</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="press">Press/Media</option>
+                            <option value="general">General Inquiry</option>
+                        </select>
+                        <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+                        <button type="submit">Send Cosmic Signal</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h2>Our Channels</h2>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>josehmuia474@gmail.com</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-globe"></i>
+                        <p>Based in the Digital Cosmos (Worldwide)</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-discord"></i>
+                        <p>Join our Discord for real-time chats</p>
+                    </div>
+                    <h3>For Business</h3>
+                    <p>josehmuia474@gmail.com</p>
+                </div>
+            </div>
+            <div class="social-links-large">
+                <h3>Follow the Conversation</h3>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                <a href="#" aria-label="Patreon"><i class="fab fa-patreon"></i></a>
+            </div>
+            <div class="newsletter-section">
+                <h2>Cosmic Newsletter</h2>
+                <p>Episode drops, exclusive insights, and debate previews.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Your Email Address" required>
+                    <button type="submit">Beam Me Up</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Popup (Alternative trigger) -->
+    <button id="newsletterBtn" class="newsletter-btn" style="display: none;">Sign Up for Newsletter</button>
+    <div id="newsletterModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeNewsletter">&times;</span>
+            <h3>Welcome to the Cosmos</h3>
+            <p>Subscribe for stellar updates from Comiflix.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Comiflix</h4>
+                    <p>Where ideas collide in the cosmos of AI.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="episodes.html">Episodes</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="community.html">Forum</a></li>
+                        <li><a href="merch.html">Merch</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Comiflix. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!-- merch.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merch & Support - Comiflix Store</title>
+    <meta name="description" content="Shop Comiflix merch: T-shirts, posters, ebooks, and more. Support the channel via Patreon or digital downloads.">
+    <meta name="keywords" content="Comiflix merch, AI apparel, ebooks, support">
+    <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://via.placeholder.com/32?text=CF" type="image/x-icon">
+</head>
+<body class="dark-mode">
+    <!-- Top Header -->
+    <header class="top-header">
+        <div class="container">
+            <span class="email">josehmuia474@gmail.com</span>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                <a href="#" aria-label="Patreon"><i class="fab fa-patreon"></i></a>
+            </div>
+            <button class="login-btn" id="loginBtn">Login</button>
+        </div>
+    </header>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>Comiflix</h1>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="episodes.html">Episodes</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="merch.html" class="active">Merch</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search merch...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                <button id="themeToggle" class="theme-toggle">🌙</button>
+                <button id="cartBtn" class="cart-btn"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></button>
+                <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h3>Login to Comiflix</h3>
+            <form class="login-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <a href="#" class="forgot-pw">Forgot Password?</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeCart">&times;</span>
+            <h3>Your Cart</h3>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                <p>Total: $<span id="cartTotal">0.00</span></p>
+                <button onclick="checkout()">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Merch Hero -->
+    <section class="merch-hero">
+        <div class="container">
+            <h1>Cosmic Swag</h1>
+            <p>Wear your philosophy, download your debates. Every purchase fuels more AI epics.</p>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="support-section">
+        <div class="container">
+            <h2>One-Time Support</h2>
+            <div class="support-links">
+                <a href="#" class="support-btn" onclick="window.open('https://patreon.com/comiflix', '_blank')">
+                    <i class="fab fa-patreon"></i> Patreon
+                </a>
+                <a href="#" class="support-btn" onclick="window.open('https://buymeacoffee.com/comiflix', '_blank')">
+                    <i class="fas fa-coffee"></i> Buy Me a Coffee
+                </a>
+                <a href="#" class="support-btn" onclick="donate(5)">
+                    <i class="fas fa-heart"></i> $5 Tip
+                </a>
+                <a href="#" class="support-btn" onclick="donate(10)">
+                    <i class="fas fa-heart"></i> $10 Tip
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Store -->
+    <section class="digital-section">
+        <div class="container">
+            <h2>Digital Downloads</h2>
+            <div class="product-grid">
+                <div class="product-card" data-price="9.99" onclick="addToCart('ebook1', 'Dialogues Ebook', 9.99)">
+                    <img src="https://via.placeholder.com/300x400?text=Dialogues+Ebook" alt="Dialogues Ebook">
+                    <h3>Ultimate Dialogues Ebook</h3>
+                    <p>Compiled transcripts and analyses from Season 1.</p>
+                    <span class="price">$9.99</span>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+                <div class="product-card" data-price="4.99" onclick="addToCart('wallpaper1', 'Cosmic Wallpapers', 4.99)">
+                    <img src="https://via.placeholder.com/300x400?text=Cosmic+Wallpapers" alt="Cosmic Wallpapers">
+                    <h3>Cosmic AI Wallpapers Pack</h3>
+                    <p>10 high-res images inspired by our episodes.</p>
+                    <span class="price">$4.99</span>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+                <div class="product-card" data-price="19.99" onclick="addToCart('art1', 'AI Art Prints', 19.99)">
+                    <img src="https://via.placeholder.com/300x400?text=AI+Art+Prints" alt="AI Art Prints">
+                    <h3>Digital AI Art Prints</h3>
+                    <p>Exclusive character portraits for your walls (digital).</p>
+                    <span class="price">$19.99</span>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+                <div class="product-card" data-price="14.99" onclick="addToCart('soundtrack1', 'Debate Soundtrack', 14.99)">
+                    <img src="https://via.placeholder.com/300x400?text=Soundtrack" alt="Soundtrack">
+                    <h3>Episode Soundtrack Album</h3>
+                    <p>Original cosmic scores from our productions.</p>
+                    <span class="price">$14.99</span>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Physical Merch -->
+    <section class="physical-section">
+        <div class="container">
+            <h2>Physical Merch</h2>
+            <p>Coming soon: High-quality prints and apparel. Pre-order now for early access!</p>
+            <div class="product-grid">
+                <div class="product-card" data-price="24.99" onclick="preorder('tshirt1', 'Socrates T-Shirt', 24.99)">
+                    <img src="https://via.placeholder.com/300x400?text=Socrates+T-Shirt" alt="Socrates T-Shirt">
+                    <h3>Socrates "Question Everything" T-Shirt</h3>
+                    <p>Soft cotton with glowing neon print.</p>
+                    <span class="price">$24.99</span>
+                    <button class="preorder-btn">Pre-Order</button>
+                </div>
+                <div class="product-card" data-price="29.99" onclick="preorder('poster1', 'Debate Poster', 29.99)">
+                    <img src="https://via.placeholder.com/300x400?text=Debate+Poster" alt="Debate Poster">
+                    <h3>Quantum Gods Debate Poster</h3>
+                    <p>24x36 inch archival print.</p>
+                    <span class="price">$29.99</span>
+                    <button class="preorder-btn">Pre-Order</button>
+                </div>
+                <div class="product-card" data-price="19.99" onclick="preorder('mug1', 'Quantum Mug', 19.99)">
+                    <img src="https://via.placeholder.com/300x400?text=Quantum+Mug" alt="Quantum Mug">
+                    <h3>Einstein "Relativity Brew" Mug</h3>
+                    <p>Ceramic with inspirational quote.</p>
+                    <span class="price">$19.99</span>
+                    <button class="preorder-btn">Pre-Order</button>
+                </div>
+                <div class="product-card" data-price="34.99" onclick="preorder('hoodie1', 'AI Hoodie', 34.99)">
+                    <img src="https://via.placeholder.com/300x400?text=AI+Hoodie" alt="AI Hoodie">
+                    <h3>Nietzsche Neural Net Hoodie</h3>
+                    <p>Cozy fleece for late-night philosophizing.</p>
+                    <span class="price">$34.99</span>
+                    <button class="preorder-btn">Pre-Order</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Comiflix</h4>
+                    <p>Where ideas collide in the cosmos of AI.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="episodes.html">Episodes</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="community.html">Forum</a></li>
+                        <li><a href="merch.html">Merch</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Comiflix. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

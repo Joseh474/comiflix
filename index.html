@@ -1,0 +1,243 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comiflix - Where Science Meets Faith in AI Dialogues</title>
+    <meta name="description" content="Explore AI-character-driven dialogues on philosophy, science, and faith. Watch episodes, read blogs, and join the community.">
+    <meta name="keywords" content="AI dialogues, philosophy, science, faith, Comiflix">
+    <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://via.placeholder.com/32?text=CF" type="image/x-icon">
+</head>
+<body class="dark-mode">
+    <!-- Top Header -->
+    <header class="top-header">
+        <div class="container">
+            <span class="email">josehmuia474@gmail.com</span>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                <a href="#" aria-label="Patreon"><i class="fab fa-patreon"></i></a>
+            </div>
+            <button class="login-btn" id="loginBtn">Login</button>
+        </div>
+    </header>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>Comiflix</h1>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="episodes.html">Episodes</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="merch.html">Merch</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search episodes...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                <button id="themeToggle" class="theme-toggle">🌙</button>
+                <button id="cartBtn" class="cart-btn"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></button>
+                <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h3>Login to Comiflix</h3>
+            <form class="login-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <a href="#" class="forgot-pw">Forgot Password?</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="logo-hero">Comiflix</h1>
+                <p class="tagline">Where Science Meets Faith in AI Dialogues</p>
+                <p class="hero-subtitle">Explore profound conversations that challenge the boundaries of knowledge and belief.</p>
+            </div>
+            <div class="featured-video">
+               <video id="featuredIframe" width="540" height="260" controls>
+  <source src="video/v1.mp4" type="video/mp4">
+</video>
+
+                <button id="playFeatured" class="play-btn">▶ Play Trailer</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Comiflix is About -->
+    <section class="about-section">
+        <div class="container">
+            <h2>What is Comiflix?</h2>
+            <p>Comiflix is a groundbreaking YouTube channel where AI characters engage in profound dialogues exploring the intersections of philosophy, science, and faith. Dive into cosmic clashes of ideas that challenge your worldview. Our episodes feature meticulously crafted AI personas debating timeless questions with wit, depth, and a touch of cosmic humor.</p>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI-Driven Debates</h3>
+                    <p>Advanced language models bring historical figures to life for unscripted discussions.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-brain"></i>
+                    <h3>Interdisciplinary Insights</h3>
+                    <p>Blending philosophy, science, and faith for holistic understanding.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-users"></i>
+                    <h3>Thriving Community</h3>
+                    <p>Join discussions, vote on topics, and contribute to future content.</p>
+                </div>
+            </div>
+            <div class="cta-buttons">
+                <a href="episodes.html" class="btn btn-primary">Watch Latest Episode</a>
+                <a href="#" class="btn btn-secondary" onclick="window.open('https://youtube.com/@comiflix', '_blank')">Subscribe on YouTube</a>
+                <a href="community.html" class="btn btn-secondary">Join the Community</a>
+                <a href="merch.html" class="btn btn-secondary">Support Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Episodes Teaser -->
+    <section class="latest-episodes">
+        <div class="container">
+            <h2>Latest Episodes</h2>
+            <div class="episodes-teaser-grid">
+                <div class="episode-teaser-card" data-category="science-vs-faith" data-title="Quantum Faith">
+                    <img src="https://via.placeholder.com/400x225?text=Quantum+Faith" alt="Quantum Faith Thumbnail" onclick="openVideoModal('https://youtube.com/embed/example4')">
+                    <h3>Quantum Faith: Entangled Souls</h3>
+                    <p>Einstein and Augustine explore if quantum mechanics proves divine interconnection.</p>
+                    <div class="tags">
+                        <span class="tag">science</span>
+                        <span class="tag">faith</span>
+                        <span class="tag">AI</span>
+                    </div>
+                    <span class="views">1.2M views</span>
+                </div>
+                <div class="episode-teaser-card" data-category="philosophy-battles" data-title="Eternal AI">
+                    <img src="https://via.placeholder.com/400x225?text=Eternal+AI" alt="Eternal AI Thumbnail" onclick="openVideoModal('https://youtube.com/embed/example5')">
+                    <h3>Eternal AI: Recurrence in Code</h3>
+                    <p>Nietzsche rebooted questions if AI loops echo eternal return.</p>
+                    <div class="tags">
+                        <span class="tag">philosophy</span>
+                        <span class="tag">AI</span>
+                    </div>
+                    <span class="views">850K views</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teasers -->
+    <section class="teasers">
+        <div class="container">
+            <h2>Latest Insights & Teasers</h2>
+            <div class="teaser-grid">
+                <div class="teaser-card">
+                    <h3>Behind the AI: Fine-Tuning Socrates</h3>
+                    <p>A deep dive into the prompt engineering that makes our philosophers so convincingly argumentative.</p>
+                    <a href="blog.html#bts-post">Read More</a>
+                </div>
+                <div class="teaser-card">
+                    <h3>Upcoming: Multiverse Morality</h3>
+                    <p>Teaser for the next episode: Do infinite universes justify infinite ethics?</p>
+                    <a href="episodes.html">Watch Teaser</a>
+                </div>
+                <div class="teaser-card">
+                    <h3>Community Poll Results</h3>
+                    <p>Faith edges out Science in the great debate topic vote—results and analysis.</p>
+                    <a href="community.html">See Results</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <h2>Stay in the Loop</h2>
+            <p>Get exclusive episode previews, blog updates, and AI debate tips straight to your inbox.</p>
+            <form class="newsletter-form-inline">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal">
+        <span class="close-video" id="closeVideo">&times;</span>
+        <div class="video-container">
+            <iframe id="videoIframe" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Comiflix</h4>
+                    <p>Where ideas collide in the cosmos of AI.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="episodes.html">Episodes</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="community.html">Forum</a></li>
+                        <li><a href="merch.html">Merch</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Comiflix. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

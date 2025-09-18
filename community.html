@@ -1,0 +1,272 @@
+<!-- community.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - Comiflix Hub</title>
+    <meta name="description" content="Join the Comiflix community: discuss episodes, vote on polls, view leaderboards, and share ideas.">
+    <meta name="keywords" content="Comiflix community, forums, polls, discussions">
+     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://via.placeholder.com/32?text=CF" type="image/x-icon">
+</head>
+<body class="dark-mode">
+    <!-- Top Header -->
+    <header class="top-header">
+        <div class="container">
+            <span class="email">josehmuia474@gmail.com</span>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                <a href="#" aria-label="Patreon"><i class="fab fa-patreon"></i></a>
+            </div>
+            <button class="login-btn" id="loginBtn">Login</button>
+        </div>
+    </header>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>Comiflix</h1>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="episodes.html">Episodes</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="community.html" class="active">Community</a></li>
+                    <li><a href="merch.html">Merch</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search community...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                <button id="themeToggle" class="theme-toggle">🌙</button>
+                <button id="cartBtn" class="cart-btn"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></button>
+                <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h3>Login to Comiflix</h3>
+            <form class="login-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <a href="#" class="forgot-pw">Forgot Password?</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Community Hero -->
+    <section class="community-hero">
+        <div class="container">
+            <h1>Community Cosmos</h1>
+            <p>Connect with fellow thinkers, debate the undebatable, and shape the future of Comiflix.</p>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community-section">
+        <div class="container">
+            <div class="community-tabs">
+                <button class="tab-btn active" data-tab="forum">Forum</button>
+                <button class="tab-btn" data-tab="polls">Polls</button>
+                <button class="tab-btn" data-tab="leaderboard">Leaderboard</button>
+                <button class="tab-btn" data-tab="events">Events</button>
+            </div>
+            <div id="forumTab" class="tab-content active">
+                <h2>Discussion Forum</h2>
+                <p>Welcome to the debate arena. Start threads on episodes or ideas. (Interactive placeholder—login to post.)</p>
+                <div class="forum-threads">
+                    <div class="thread-card">
+                        <h4>Quantum Gods: Was Socrates right about simulations?</h4>
+                        <p>Started by CosmicThinker • 45 replies • Sep 14, 2025</p>
+                        <button onclick="openThread('thread1')">View Thread</button>
+                    </div>
+                    <div class="thread-card">
+                        <h4>Eternal Recurrence: Nietzsche wins or loses?</h4>
+                        <p>Started by FaithCoder • 32 replies • Sep 10, 2025</p>
+                        <button onclick="openThread('thread2')">View Thread</button>
+                    </div>
+                    <div class="thread-card">
+                        <h4>Idea: Debate on AI sentience?</h4>
+                        <p>Started by SciPhiFan • 18 replies • Sep 5, 2025</p>
+                        <button onclick="openThread('thread3')">View Thread</button>
+                    </div>
+                </div>
+                <form class="new-thread-form">
+                    <input type="text" placeholder="Start a new discussion..." required>
+                    <button type="submit">Post Thread</button>
+                </form>
+            </div>
+            <div id="pollsTab" class="tab-content">
+                <h2>Active Polls</h2>
+                <div class="polls-container">
+                    <div class="poll">
+                        <h3>Next Episode Topic</h3>
+                        <form class="poll-form">
+                            <label><input type="radio" name="poll1" value="1"> Free Will in AI (45%)</label>
+                            <label><input type="radio" name="poll1" value="2"> Multiverse Morality (35%)</label>
+                            <label><input type="radio" name="poll1" value="3"> Consciousness Upload (20%)</label>
+                            <button type="submit">Vote</button>
+                        </form>
+                        <p>Closes Sep 30, 2025 • 1,234 votes</p>
+                    </div>
+                    <div class="poll">
+                        <h3>Favorite Character</h3>
+                        <form class="poll-form">
+                            <label><input type="radio" name="poll2" value="1"> Socrates (40%)</label>
+                            <label><input type="radio" name="poll2" value="2"> Einstein (30%)</label>
+                            <label><input type="radio" name="poll2" value="3"> Augustine (20%)</label>
+                            <label><input type="radio" name="poll2" value="4"> Nietzsche (10%)</label>
+                            <button type="submit">Vote</button>
+                        </form>
+                        <p>Ongoing • 890 votes</p>
+                    </div>
+                </div>
+                <h3>Past Poll Results</h3>
+                <div class="past-polls">
+                    <p>Best Episode: Quantum Gods - 52% winner</p>
+                </div>
+            </div>
+            <div id="leaderboardTab" class="tab-content">
+                <h2>Top Contributors</h2>
+                <p>Earn points for posts, votes, and shares. Climb the ranks!</p>
+                <table class="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>User</th>
+                            <th>Points</th>
+                            <th>Posts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>CosmicThinker</td>
+                            <td>1,500</td>
+                            <td>89</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>FaithCoder</td>
+                            <td>1,200</td>
+                            <td>67</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>SciPhiFan</td>
+                            <td>950</td>
+                            <td>54</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>QuantumQuaker</td>
+                            <td>800</td>
+                            <td>42</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>AlgoAugustine</td>
+                            <td>650</td>
+                            <td>38</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Your Rank: <span id="userRank">Unranked</span> (Login to see)</p>
+            </div>
+            <div id="eventsTab" class="tab-content">
+                <h2>Upcoming Events</h2>
+                <div class="events-list">
+                    <div class="event-card">
+                        <h4>Live Debate: AI & Soul</h4>
+                        <p>Sep 25, 2025 • 8PM UTC • YouTube Premiere</p>
+                        <button onclick="rsvp('event1')">RSVP</button>
+                        <span class="rsvp-count">1,200 attending</span>
+                    </div>
+                    <div class="event-card">
+                        <h4>Community AMA with Creators</h4>
+                        <p>Oct 5, 2025 • Discord</p>
+                        <button onclick="rsvp('event2')">RSVP</button>
+                        <span class="rsvp-count">850 attending</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thread Modal -->
+    <div id="threadModal" class="modal">
+        <div class="modal-content large">
+            <span class="close" id="closeThread">&times;</span>
+            <div id="threadContent">
+                <!-- Dynamic thread content -->
+            </div>
+            <form class="reply-form">
+                <textarea placeholder="Add your reply..." required></textarea>
+                <button type="submit">Reply</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Comiflix</h4>
+                    <p>Where ideas collide in the cosmos of AI.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="episodes.html">Episodes</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="community.html">Forum</a></li>
+                        <li><a href="merch.html">Merch</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Comiflix. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

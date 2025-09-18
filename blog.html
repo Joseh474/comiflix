@@ -1,0 +1,269 @@
+<!-- blog.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Insights - Comiflix</title>
+    <meta name="description" content="Deep dives, analyses, and behind-the-scenes from the world of AI dialogues on philosophy, faith, and science.">
+    <meta name="keywords" content="Comiflix blog, AI insights, philosophy articles, science faith">
+    <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://via.placeholder.com/32?text=CF" type="image/x-icon">
+</head>
+<body class="dark-mode">
+    <!-- Top Header -->
+    <header class="top-header">
+        <div class="container">
+            <span class="email">josehmuia474@gmail.com</span>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                <a href="#" aria-label="Patreon"><i class="fab fa-patreon"></i></a>
+            </div>
+            <button class="login-btn" id="loginBtn">Login</button>
+        </div>
+    </header>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>Comiflix</h1>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="episodes.html">Episodes</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="merch.html">Merch</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search blog posts...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                <button id="themeToggle" class="theme-toggle">🌙</button>
+                <button id="cartBtn" class="cart-btn"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></button>
+                <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h3>Login to Comiflix</h3>
+            <form class="login-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <a href="#" class="forgot-pw">Forgot Password?</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>Insights & Reflections</h1>
+            <p>Expanded thoughts, episode breakdowns, and explorations beyond the screen. SEO-optimized for curious minds.</p>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-filters">
+                <button class="cat-btn active" data-cat="all">All Posts</button>
+                <button class="cat-btn" data-cat="philosophy">Philosophy</button>
+                <button class="cat-btn" data-cat="faith">Faith</button>
+                <button class="cat-btn" data-cat="science">Science</button>
+                <button class="cat-btn" data-cat="behind-the-scenes">Behind-the-Scenes</button>
+                <button class="cat-btn" data-cat="ai-ethics">AI Ethics</button>
+            </div>
+            <div class="sort-options">
+                <label>Sort by: </label>
+                <select id="blogSort">
+                    <option value="date-desc">Latest</option>
+                    <option value="date-asc">Oldest</option>
+                    <option value="title-asc">A-Z</option>
+                </select>
+            </div>
+            <div class="blog-grid" id="blogGrid">
+                <article class="blog-post" data-cat="philosophy" data-date="2025-09-12">
+                    <img src="https://via.placeholder.com/400x250?text=AI+Socratic" alt="AI Socratic Method">
+                    <h3>The AI Socratic Method: Questioning in the Age of Answers</h3>
+                    <p>Delve into how large language models are reviving the art of dialectical inquiry, with examples from our latest episode.</p>
+                    <div class="post-meta">
+                        <span class="author">By Alex Rivera</span>
+                        <time datetime="2025-09-12">Sep 12, 2025</time>
+                        <span class="read-time">5 min read</span>
+                    </div>
+                    <a href="#" class="read-more" onclick="openBlogModal('post1')">Read Full Post</a>
+                </article>
+                <article class="blog-post" data-cat="science" data-date="2025-09-08">
+                    <img src="https://via.placeholder.com/400x250?text=Quantum+Entangle" alt="Quantum Entanglement">
+                    <h3>Quantum Entanglement and Divine Connection: Parallels Explored</h3>
+                    <p>Is spooky action at a distance a metaphor for spiritual unity? Breaking down the physics and theology.</p>
+                    <div class="post-meta">
+                        <span class="author">By Jordan Lee</span>
+                        <time datetime="2025-09-08">Sep 8, 2025</time>
+                        <span class="read-time">7 min read</span>
+                    </div>
+                    <a href="#" class="read-more" onclick="openBlogModal('post2')">Read Full Post</a>
+                </article>
+                <article class="blog-post" data-cat="faith" data-date="2025-09-01">
+                    <img src="https://via.placeholder.com/400x250?text=Faith+Algorithms" alt="Faith Algorithms">
+                    <h3>Faith in the Age of Algorithms: Can Code Be Sacred?</h3>
+                    <p>Examining if AI tools can enhance rather than erode religious practice.</p>
+                    <div class="post-meta">
+                        <span class="author">By Sam Patel</span>
+                        <time datetime="2025-09-01">Sep 1, 2025</time>
+                        <span class="read-time">6 min read</span>
+                    </div>
+                    <a href="#" class="read-more" onclick="openBlogModal('post3')">Read Full Post</a>
+                </article>
+                <article class="blog-post" data-cat="behind-the-scenes" data-date="2025-08-28">
+                    <img src="https://via.placeholder.com/400x250?text=Crafting+Dialogues" alt="Crafting Dialogues">
+                    <h3>Crafting Episode Dialogues: The Art of Prompt Alchemy</h3>
+                    <p>Step-by-step on how we turn vague ideas into hour-long debates.</p>
+                    <div class="post-meta">
+                        <span class="author">By Team Comiflix</span>
+                        <time datetime="2025-08-28">Aug 28, 2025</time>
+                        <span class="read-time">8 min read</span>
+                    </div>
+                    <a href="#" class="read-more" onclick="openBlogModal('post4')">Read Full Post</a>
+                </article>
+                <article class="blog-post" data-cat="ai-ethics" data-date="2025-08-20">
+                    <img src="https://via.placeholder.com/400x250?text=AI+Ethics" alt="AI Ethics">
+                    <h3>Ethical Dilemmas in AI Personas: Who Owns the Soul?</h3>
+                    <p>Navigating consent, bias, and identity in our character creations.</p>
+                    <div class="post-meta">
+                        <span class="author">By Alex Rivera</span>
+                        <time datetime="2025-08-20">Aug 20, 2025</time>
+                        <span class="read-time">9 min read</span>
+                    </div>
+                    <a href="#" class="read-more" onclick="openBlogModal('post5')">Read Full Post</a>
+                </article>
+                <article class="blog-post" data-cat="philosophy" data-date="2025-08-15">
+                    <img src="https://via.placeholder.com/400x250?text=Nietzsche+AI" alt="Nietzsche AI">
+                    <h3>Nietzsche in Neural Nets: Will to Power or Power to Will?</h3>
+                    <p>How AI embodies the übermensch—or corrupts it.</p>
+                    <div class="post-meta">
+                        <span class="author">By Jordan Lee</span>
+                        <time datetime="2025-08-15">Aug 15, 2025</time>
+                        <span class="read-time">4 min read</span>
+                    </div>
+                    <a href="#" class="read-more" onclick="openBlogModal('post6')">Read Full Post</a>
+                </article>
+                <!-- Add more to lengthen -->
+                <article class="blog-post" data-cat="science" data-date="2025-07-25">
+                    <img src="https://via.placeholder.com/400x250?text=Multiverse+Faith" alt="Multiverse Faith">
+                    <h3>Multiverse Theories and Monotheism: Infinite Gods?</h3>
+                    <p>Does many-worlds interpretation challenge or affirm the divine?</p>
+                    <div class="post-meta">
+                        <span class="author">By Sam Patel</span>
+                        <time datetime="2025-07-25">Jul 25, 2025</time>
+                        <span class="read-time">10 min read</span>
+                    </div>
+                    <a href="#" class="read-more" onclick="openBlogModal('post7')">Read Full Post</a>
+                </article>
+            </div>
+            <div id="noBlogResults" class="no-results" style="display: none;">
+                <p>No posts match your criteria. Explore more categories.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ask the AI Section -->
+    <section class="qa-section">
+        <div class="container">
+            <h2>Ask the AI: Audience Q&A</h2>
+            <p>Submit questions for our characters to tackle in upcoming episodes. Top votes get featured!</p>
+            <form class="qa-form">
+                <input type="text" placeholder="Your Question (e.g., What would Socrates say about social media?)" required>
+                <select required>
+                    <option value="">Choose Character</option>
+                    <option value="socrates">Socrates</option>
+                    <option value="einstein">Einstein</option>
+                    <option value="augustine">Augustine</option>
+                    <option value="nietzsche">Nietzsche</option>
+                </select>
+                <button type="submit">Submit & Vote</button>
+            </form>
+            <div class="top-qa">
+                <h3>Top Submitted Questions</h3>
+                <ul>
+                    <li>Q: Can AI achieve enlightenment? (Votes: 245) <button onclick="upvote('q1')">Vote</button></li>
+                    <li>Q: Is the universe a simulation? (Votes: 189) <button onclick="upvote('q2')">Vote</button></li>
+                    <li>Q: Faith vs. Facts: Where's the line? (Votes: 156) <button onclick="upvote('q3')">Vote</button></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Modal -->
+    <div id="blogModal" class="modal">
+        <div class="modal-content large">
+            <span class="close" id="closeBlog">&times;</span>
+            <div id="blogContent">
+                <!-- Dynamic content loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Comiflix</h4>
+                    <p>Where ideas collide in the cosmos of AI.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="episodes.html">Episodes</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="community.html">Forum</a></li>
+                        <li><a href="merch.html">Merch</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Comiflix. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

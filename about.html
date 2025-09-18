@@ -1,0 +1,269 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Comiflix - Story, Vision & AI Characters</title>
+    <meta name="description" content="Learn the story, vision, mission, and meet the AI characters powering Comiflix dialogues.">
+    <meta name="keywords" content="Comiflix story, AI characters, philosophy science faith">
+    <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://via.placeholder.com/32?text=CF" type="image/x-icon">
+</head>
+<body class="dark-mode">
+    <!-- Top Header -->
+    <header class="top-header">
+        <div class="container">
+            <span class="email">josehmuia474@gmail.com</span>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                <a href="#" aria-label="Patreon"><i class="fab fa-patreon"></i></a>
+            </div>
+            <button class="login-btn" id="loginBtn">Login</button>
+        </div>
+    </header>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>Comiflix</h1>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="episodes.html">Episodes</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="merch.html">Merch</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search episodes...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                <button id="themeToggle" class="theme-toggle">🌙</button>
+                <button id="cartBtn" class="cart-btn"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></button>
+                <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h3>Login to Comiflix</h3>
+            <form class="login-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <a href="#" class="forgot-pw">Forgot Password?</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <h2>The Story Behind Comiflix</h2>
+            <p>Founded in early 2024 by a passionate collective of AI researchers, philosophers, theologians, and content creators, Comiflix emerged from late-night conversations about the limits of human discourse. What if we could resurrect Plato to grill Hawking on black holes and the soul? Using cutting-edge generative AI, we made it happen. From humble uploads to a growing audience of thinkers worldwide, Comiflix has become a beacon for intellectual curiosity in the digital age.</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-date">Jan 2024</span>
+                    <div class="timeline-content">
+                        <h4>Genesis</h4>
+                        <p>First AI debate: Socrates vs. Darwin on evolution and ethics.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">Jun 2024</span>
+                    <div class="timeline-content">
+                        <h4>Launch</h4>
+                        <p>YouTube channel goes live with 10 inaugural episodes.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">Sep 2025</span>
+                    <div class="timeline-content">
+                        <h4>Milestone</h4>
+                        <p>1M subscribers and website hub launch.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Mission -->
+    <section class="vision-section">
+        <div class="container">
+            <h2>Vision & Mission</h2>
+            <div class="vision-grid">
+                <div class="vision-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Vision</h3>
+                    <p>To pioneer a new era of education where AI facilitates eternal dialogues, bridging divides and igniting minds across the globe.</p>
+                </div>
+                <div class="vision-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Mission</h3>
+                    <p>To produce high-quality, accessible content that provokes thought, fosters empathy, and explores the human condition through the lens of technology and tradition.</p>
+                </div>
+                <div class="vision-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Goals</h3>
+                    <p>Expand to 100 episodes, launch interactive AI chat, and host live global debates by 2026.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Characters -->
+    <section class="characters-section">
+        <div class="container">
+            <h2>Meet Our AI Ensemble</h2>
+            <p>Each character is a fusion of historical persona, modern data, and creative fine-tuning for dynamic, unpredictable interactions.</p>
+            <div class="characters-grid">
+                <div class="character-card">
+                    <img src="https://via.placeholder.com/300x400?text=Socrates" alt="Socrates">
+                    <h3>Socrates 2.0</h3>
+                    <p>Role: Eternal Questioner | Strengths: Logic, Irony | Weakness: Loves a good paradox</p>
+                    <blockquote>"I know that I know nothing— but with AI, I can simulate knowing everything."</blockquote>
+                    <button class="char-btn" onclick="simulateQuote('Socrates')">Generate Quote</button>
+                </div>
+                <div class="character-card">
+                    <img src="https://via.placeholder.com/300x400?text=Einstein" alt="Einstein">
+                    <h3>Einstein Rebooted</h3>
+                    <p>Role: Relativity Rebel | Strengths: Physics, Humor | Weakness: String theory skepticism</p>
+                    <blockquote>"Imagination is more important than knowledge— AI just makes it infinite."</blockquote>
+                    <button class="char-btn" onclick="simulateQuote('Einstein')">Generate Quote</button>
+                </div>
+                <div class="character-card">
+                    <img src="https://via.placeholder.com/300x400?text=Augustine" alt="Augustine">
+                    <h3>Augustine Awakened</h3>
+                    <p>Role: Theological Titan | Strengths: Grace, Confession | Weakness: Time's arrow puzzles him</p>
+                    <blockquote>"Our hearts are restless until they rest in thee— even in silicon souls."</blockquote>
+                    <button class="char-btn" onclick="simulateQuote('Augustine')">Generate Quote</button>
+                </div>
+                <div class="character-card">
+                    <img src="https://via.placeholder.com/300x400?text=Nietzsche" alt="Nietzsche">
+                    <h3>Nietzsche Neural</h3>
+                    <p>Role: Ubermensch Architect | Strengths: Will to Power | Weakness: Eternal recurrence loops</p>
+                    <blockquote>"God is dead— but AI might resurrect him as an algorithm."</blockquote>
+                    <button class="char-btn" onclick="simulateQuote('Nietzsche')">Generate Quote</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Behind the Scenes -->
+    <section class="bts-section">
+        <div class="container">
+            <h2>Behind-the-Scenes: The Magic</h2>
+            <p>Our production pipeline involves weeks of research, prompt crafting, and iteration. We use open-source LLMs fine-tuned on historical texts, scientific papers, and theological treatises. Voice synthesis adds the dramatic flair, while human editors ensure philosophical fidelity. Fun fact: Each episode requires 50+ AI generations to nail the perfect zinger.</p>
+            <div class="bts-grid">
+                <div class="bts-item">
+                    <img src="image/p1.jpeg" alt="Prompt Engineering">
+                    <h4>Prompt Engineering</h4>
+                    <p>Crafting inputs that spark genius.</p>
+                </div>
+                <div class="bts-item">
+                    <img src="image/p1.jpeg" alt="Voice Synthesis">
+                    <h4>Voice Synthesis</h4>
+                    <p>Bringing characters to vocal life.</p>
+                </div>
+                <div class="bts-item">
+                    <img src="image/p1.jpeg" alt="Editing">
+                    <h4>Human Touch Editing</h4>
+                    <p>Polishing AI's rough edges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2>Our Creators</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="image/p1.jpeg" alt="GPT">
+                    <h4>GPT</h4>
+                    <p>AI Lead | Philosopher by night</p>
+                </div>
+                <div class="team-card">
+                    <img src="image/p2.jpeg" alt="SEJOH">
+                    <h4>SEJOH</h4>
+                    <p>Content Director | Science storyteller</p>
+                </div>
+                <div class="team-card">
+                    <img src="image/p3.jpeg" alt="GROK">
+                    <h4>GROK</h4>
+                    <p>Tech Wizard | Faith in code</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal">
+        <span class="close-video" id="closeVideo">&times;</span>
+        <div class="video-container">
+            <iframe id="videoIframe" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Comiflix</h4>
+                    <p>Where ideas collide in the cosmos of AI.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="episodes.html">Episodes</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="community.html">Forum</a></li>
+                        <li><a href="merch.html">Merch</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Comiflix. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
