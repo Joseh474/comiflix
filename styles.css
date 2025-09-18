@@ -1896,7 +1896,7 @@ p {
 /* Main Content Container */
 #main-content {
     min-height: 100vh;
-    padding: 100px 0 80px;
+    padding: 10px 0 80px;
     position: relative;
 }
 
@@ -2785,3 +2785,4 @@ p {
         box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
     }
 }
+
