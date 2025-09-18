@@ -1896,7 +1896,7 @@ p {
 /* Main Content Container */
 #main-content {
     min-height: 100vh;
-    padding: 10px 0 80px;
+    padding: 0 0 80px;
     position: relative;
 }
 
@@ -1908,7 +1908,7 @@ p {
 .terms-content, .privacy-content {
     max-width: 900px;
     margin: 0 auto;
-    padding: 60px 40px;
+    padding: 10px 40px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 20px;
     border: 1px solid rgba(0, 255, 136, 0.2);
@@ -2161,7 +2161,7 @@ p {
 /* Medium Tablets (577px to 768px) */
 @media (min-width: 577px) and (max-width: 768px) {
     #main-content {
-        padding: 80px 0 60px;
+        padding: 0 0 60px;
     }
     
     .terms-content, .privacy-content {
@@ -2219,7 +2219,7 @@ p {
 /* Large Mobile (481px to 576px) */
 @media (min-width: 481px) and (max-width: 576px) {
     #main-content {
-        padding: 70px 0 50px;
+        padding: 0 0 50px;
     }
     
     .terms-content, .privacy-content {
@@ -2295,7 +2295,7 @@ p {
 /* Small Mobile (361px to 480px) */
 @media (min-width: 361px) and (max-width: 480px) {
     #main-content {
-        padding: 60px 0 40px;
+        padding: 0 0 40px;
     }
     
     .terms-content, .privacy-content {
@@ -2372,7 +2372,7 @@ p {
 /* Extra Small Mobile (up to 360px) */
 @media (max-width: 360px) {
     #main-content {
-        padding: 50px 0 35px;
+        padding: 0 0 35px;
     }
     
     .terms-content, .privacy-content {
@@ -2459,7 +2459,7 @@ p {
 /* Landscape Mobile (up to 667px height) */
 @media (max-height: 667px) and (orientation: landscape) and (max-width: 896px) {
     #main-content {
-        padding: 40px 0 30px;
+        padding: 0 0 30px;
     }
     
     .terms-content, .privacy-content {
@@ -2785,4 +2785,3 @@ p {
         box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
     }
 }
-
