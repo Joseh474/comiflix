@@ -28,6 +28,7 @@ class ComifiixApp {
         
         this.init();
     }
+    
 
     // === INITIALIZATION ===
     init() {
@@ -563,32 +564,43 @@ class ComifiixApp {
     }
 
     renderEpisodeCard(episode) {
-        return `
-            <div class="episode-card" data-category="${episode.category}" role="article">
-                <div class="episode-thumbnail" onclick="app.openVideoModal('https://www.youtube.com/embed/example${episode.id}')" 
-                     role="button" tabindex="0" aria-label="Play ${episode.title}">
-                    <img src="https://via.placeholder.com/300x169?text=${encodeURIComponent(episode.title)}" 
-                         alt="${episode.title} thumbnail" loading="lazy">
-                    <div class="play-overlay">
-                        <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M8 5v14l11-7z"/>
-                        </svg>
-                    </div>
-                </div>
-                <div class="episode-info">
-                    <h3>${episode.title}</h3>
-                    <p class="episode-description">${episode.description || 'Engaging dialogue exploring profound questions.'}</p>
-                    <div class="episode-meta">
-                        <time datetime="${episode.date}">${this.formatDate(episode.date)}</time>
-                        <span class="views" aria-label="${episode.views} views">${this.formatViews(episode.views)}</span>
-                    </div>
-                    <div class="tags" role="list" aria-label="Episode tags">
-                        ${episode.tags.map(tag => `<span class="tag" role="listitem">${tag}</span>`).join('')}
-                    </div>
+    const imageName = episode.image || episode.title || 'fallback';
+    const src = buildImagePath(imageName);
+
+    // escape double quotes in title for safety
+    const safeTitle = (episode.title || 'Episode').replace(/"/g, '&quot;');
+
+    return `
+        <div class="episode-card" data-category="${episode.category}" role="article">
+            <div class="episode-thumbnail" onclick="app.openVideoModal('https://www.youtube.com/embed/example${episode.id}')" 
+                 role="button" tabindex="0" aria-label="Play ${safeTitle}">
+                <img src="${src}"
+                     data-orig-name="${imageName}"
+                     alt="${safeTitle} thumbnail"
+                     loading="lazy"
+                     onerror="imageErrorFallback(this)">
+                <div class="play-overlay">
+                    <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
                 </div>
             </div>
-        `;
-    }
+            <div class="episode-info">
+                <h3>${episode.title}</h3>
+                <p class="episode-description">${episode.description || 'Engaging dialogue exploring profound questions.'}</p>
+                <div class="episode-meta">
+                    <time datetime="${episode.date}">${this.formatDate(episode.date)}</time>
+                    <span class="views" aria-label="${episode.views} views">${this.formatViews(episode.views)}</span>
+                </div>
+                <div class="tags" role="list" aria-label="Episode tags">
+                    ${episode.tags.map(tag => `<span class="tag" role="listitem">${tag}</span>`).join('')}
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+
 
     // === BLOG PAGE ===
     initBlog() {
