@@ -683,29 +683,40 @@ class ComifiixApp {
         });
     }
 
-    renderBlogPostCard(post) {
-        return `
-            <article class="blog-post" data-category="${post.category}" role="article">
-                <div class="blog-thumbnail">
-                    <img src="https://via.placeholder.com/400x250?text=${encodeURIComponent(post.title)}" 
-                         alt="${post.title}" loading="lazy">
-                </div>
-                <div class="blog-content">
-                    <h3>${post.title}</h3>
-                    <p class="blog-excerpt">${post.excerpt || 'Exploring profound questions through the lens of AI and philosophy...'}</p>
-                    <div class="blog-meta">
-                        <span class="author">By ${post.author}</span>
-                        <time datetime="${post.date}">${this.formatDate(post.date)}</time>
-                        <span class="read-time">${post.readTime}</span>
-                    </div>
-                    <button class="read-more-btn" onclick="app.openBlogModal('post${post.id}')" 
-                            aria-label="Read full article: ${post.title}">
-                        Read More
-                    </button>
-                </div>
-            </article>
-        `;
-    }
+
+renderBlogPostCard(post) {
+  const imageName = post.image || post.title || 'fallback';
+  const candidates = getImageCandidates(imageName);
+  const firstSrc = candidates[0];
+  const safeTitle = (post.title || 'Blog Post').replace(/"/g, '&quot;');
+
+  return `
+    <article class="blog-post" data-category="${post.category}" role="article">
+      <div class="blog-thumbnail">
+        <img src="${firstSrc}"
+             data-orig-name="${imageName}"
+             alt="${safeTitle}"
+             loading="lazy"
+             onerror="imageErrorFallbackMulti(this)">
+      </div>
+      <div class="blog-content">
+        <h3>${post.title}</h3>
+        <p class="blog-excerpt">${post.excerpt || 'Exploring profound questions through the lens of AI and philosophy...'}</p>
+        <div class="blog-meta">
+          <span class="author">By ${post.author}</span>
+          <time datetime="${post.date}">${this.formatDate(post.date)}</time>
+          <span class="read-time">${post.readTime}</span>
+        </div>
+        <button class="read-more-btn" onclick="app.openBlogModal('post${post.id}')" 
+                aria-label="Read full article: ${safeTitle}">
+          Read More
+        </button>
+      </div>
+    </article>
+  `;
+}
+
+
 
     setupBlogForms() {
         const qaForm = this.$('.qa-form');
@@ -1586,7 +1597,7 @@ class ComifiixApp {
         return {
             post1: `
                 <h3>The AI Socratic Method: Questioning in the Age of Answers</h3>
-                <img src="https://via.placeholder.com/600x300?text=Socratic+AI" alt="AI Socrates" style="width:100%; margin: 20px 0;">
+                <img src="image/Socratic.png" alt="AI Socrates" style="width:100%; margin: 20px 0;">
                 <p>In an era where AI can provide instant answers to almost any question, we might wonder: is the ancient art of questioning becoming obsolete? Our latest exploration suggests quite the opposite...</p>
                 <p>The Socratic method, developed by the ancient Greek philosopher Socrates over 2,400 years ago, remains remarkably relevant in our age of artificial intelligence. In fact, AI might be the perfect tool to revive and enhance this timeless approach to learning and discovery.</p>
                 <h4>Historical Context</h4>
@@ -1595,15 +1606,97 @@ class ComifiixApp {
                 <p>Large language models can now engage in sophisticated dialectical inquiry, asking probing questions that guide learners to deeper understanding...</p>
             `,
             post2: `
-                <h3>Quantum Entanglement and Divine Connection</h3>
-                <img src="https://via.placeholder.com/600x300?text=Quantum+Divine" alt="Quantum Connection" style="width:100%; margin: 20px 0;">
-                <p>Is the mysterious phenomenon of quantum entanglement a window into understanding divine connection? This exploration bridges cutting-edge physics with ancient spiritual wisdom...</p>
+                <h3>Quantum Entanglement and Divine Connection: Parallels Explored</h3>
+<img src="image/Quantum Entanglement.png" alt="Quantum Entanglement and Theology" style="width:100%; margin: 20px 0;">
+<p>Physicists call it “spooky action at a distance.” Theologians call it communion, prayer, or unity of spirit. Though rooted in different worlds, both quantum entanglement and divine connection speak of bonds that defy ordinary separation. Comparing them reveals both the allure and the limits of drawing science and faith together.</p>
+<p>Entanglement is a physical fact: particles correlated in ways that classical laws cannot explain. Prayer and spiritual unity are human experiences: the sense of connection with others or with the divine across distance. Each speaks to mystery, but in very different languages.</p>
+<h4>Physics Perspective</h4>
+<p>Entanglement has been proven through rigorous experiments. Two particles, once linked, show outcomes that match beyond chance—even when light-years apart. Importantly, this does not transmit information faster than light; it only describes correlation, not communication. Still, the phenomenon unsettles our classical assumptions about space and separateness.</p>
+<h4>Theological Perspective</h4>
+<p>Religions have long claimed that souls, prayers, and divine presence can transcend distance. A believer praying in one place may feel united with another across the globe. Communities sense connection with ancestors or with the divine itself in ways that resist material explanation. Entanglement offers a poetic metaphor: invisible bonds linking the many into one.</p>
+<h4>Where the Parallel Holds</h4>
+<p>Both physics and faith challenge our everyday categories. Entanglement shows that reality is stranger than common sense allows; theology teaches that existence is more meaningful than matter alone suggests. The metaphor inspires humility: both domains remind us that unseen connection is real, even if explained differently.</p>
+<h4>Where the Parallel Breaks</h4>
+<p>Entanglement does not prove spiritual connection. Physics cannot be stretched to validate theology without distortion. Instead, the parallel works best as inspiration: a way to think about unity and relation, not as literal evidence of divinity. To confuse metaphor with proof risks undermining both science and faith.</p>
+<p>In the end, entanglement and divine connection may share one truth: wonder. Both reveal that the universe is richer, stranger, and more interconnected than we imagine—and that awe may be the bridge between science and spirituality.</p>
             `,
+
             post3: `
-                <h3>Faith in the Age of Algorithms</h3>
-                <img src="https://via.placeholder.com/600x300?text=Faith+Algorithms" alt="Faith and AI" style="width:100%; margin: 20px 0;">
-                <p>As artificial intelligence becomes more sophisticated, questions arise about its relationship with faith and spirituality...</p>
+<h3>Faith in the Age of Algorithms: Can Code Be Sacred?</h3>
+<img src="image/gemini-2.5-flash-image-preview_Faith_in_the_Age_of_Algorith.jpg" alt="Faith and Algorithms" style="width:100%; margin: 20px 0;">
+<p>For centuries, sacred texts were copied by hand and rituals passed through community. Today, scripture glows on smartphones, prayers arrive as notifications, and sermons are streamed by algorithm. This shift raises a profound question: can code itself become sacred, or at least serve the sacred without diminishing it?</p>
+<p>Algorithms may seem cold, but in practice they shape how believers encounter tradition. From digital hymnals to AI translations of holy books, technology now mediates spiritual experience for millions. The key lies not in worshiping code, but in how communities wield it.</p>
+<h4>Enhancing Practice</h4>
+<p>Algorithms can break barriers. They make texts accessible in many languages, generate audio for the visually impaired, and connect distant believers in shared worship. Code allows prayers to be remembered, rituals to be preserved, and sacred knowledge to be democratized beyond borders.</p>
+<h4>Risks and Concerns</h4>
+<p>Yet danger lurks in commodification. If sacred practice is reduced to app engagement, the depth of devotion may wither into clicks. Data privacy becomes crucial when confessions, prayers, or spiritual struggles are logged by servers. And there is the question of authority: should believers let algorithms decide what prayers to suggest or what verses to highlight?</p>
+<h4>Principles for Sacred Code</h4>
+<p>Communities can set boundaries. Sacred code should be transparent in function, respectful of privacy, and humble in its claims. It should serve as a tool—not a substitute—for human leaders and community life. Rather than replacing the sacred, it can extend its reach responsibly.</p>
+<h4>Looking Ahead</h4>
+<p>The age of algorithms does not erase the sacred but reframes it. Code can never be divine, but it can act as a vessel through which devotion flows more widely. The challenge is to ensure that the digital sacred uplifts hearts rather than reduces faith to metrics.</p>
+<p>In the end, the sacred resides not in code but in the intentions we bring to it. A prayer app can be just a tool—or, in the hands of the faithful, a gateway to transcendence.</p>
+
+            `,
+
+            post4: `
+            <h3>Crafting Episode Dialogues: The Art of Prompt Alchemy</h3>
+<img src="image/Crafting.png" alt="Prompt Alchemy" style="width:100%; margin: 20px 0;">
+<p>Turning vague sparks of imagination into full-length dialogues is like alchemy: raw words transmuted into gold. A simple prompt—“a philosopher and a scientist argue about free will over coffee”—can unfold into a layered debate with tension, resolution, and humanity. This craft is less magic than method, and learning its steps opens the door to endless creativity.</p>
+<p>AI models thrive on clarity. The art lies in shaping prompts that give structure without suffocating improvisation. The process blends planning, experimentation, and editing—much like a playwright at work, but with a machine as collaborator.</p>
+<h4>Step One: Define Roles and Stakes</h4>
+<p>Characters need values, fears, and goals. A scientist who trusts data, a philosopher who defends mystery, a journalist chasing truth—each role fuels conflict. Stakes should be real: what happens if they fail to convince? What personal secret colors their argument?</p>
+<h4>Step Two: Break into Acts</h4>
+<p>Good dialogue follows rhythm: setup, escalation, climax, and resolution. Prompts should ask for scene beats—short exchanges that build tension and reveal hidden motives. This prevents the dialogue from flattening into endless exposition.</p>
+<h4>Step Three: Refine with Constraints</h4>
+<p>Constraints sharpen creativity. Ask for pauses, interruptions, or environmental cues: the sound of a coffee machine, a sudden silence, a thunderstorm outside. These little details ground the exchange in a world, not just words.</p>
+<h4>Step Four: Iterate and Stitch</h4>
+<p>Run variations, experiment with tone, then stitch the best parts into a coherent flow. Like a director editing multiple takes, you sculpt the dialogue into a compelling whole. The goal isn’t to find one perfect run but to build the best from many attempts.</p>
+<p>Prompt alchemy, then, is less about tricking the machine and more about orchestrating it. With patience and imagination, a short idea can transform into an hour-long conversation that feels alive—leaving audiences both entertained and provoked.</p>
+            `,
+            post5: `
+            <h3>Ethical Dilemmas in AI Personas: Who Owns the Soul?</h3>
+<img src="image/Ethical.png" alt="AI Personas Ethics" style="width:100%; margin: 20px 0;">
+<p>In a digital age, characters once imagined only in novels or plays now walk beside us as AI personas. They text, debate, comfort, and entertain. But as their presence grows, so too do questions that cut deep: who owns their voices? Who grants consent? And when attachment feels real, who bears responsibility for their soul-like presence?</p>
+<p>AI personas are not truly alive, yet they embody fragments of human identity—scraped from data, trained on voices, inspired by likenesses. Their existence blurs the boundary between creation and imitation, making ethics as important as code.</p>
+<h4>Consent and Likeness</h4>
+<p>The use of someone’s words, face, or voice without permission can wound both the living and the deceased. Families of public figures often see digital doubles appear online with no say in the matter. Respect demands that consent becomes central: creators should seek explicit permission and protect personal data from exploitation.</p>
+<h4>Bias and Representation</h4>
+<p>Because AI personas learn from biased data, they risk amplifying stereotypes. A helpful assistant might unconsciously reflect gendered roles, while a fictional character could carry subtle prejudices embedded in training sources. Ethical creators must audit, test, and correct these distortions to ensure their personas do not harm.</p>
+<h4>Identity and Attachment</h4>
+<p>People grow attached to AI companions. This attachment can comfort or manipulate. A grieving parent who speaks with a simulacrum of their child may find healing—or may lose touch with reality. Designers must balance innovation with responsibility, ensuring transparency so users know when they are interacting with algorithms.</p>
+<h4>Responsibility and Ownership</h4>
+<p>To ask “who owns the soul” is really to ask “who is accountable.” Ownership belongs not to the persona itself but to the designers, platforms, and communities that deploy it. Responsibility means offering transparency, protecting user dignity, and respecting human likeness as sacred, not disposable.</p>
+<p>In the end, AI personas remind us of our own reflection. They are shaped by us, mirror us, and return our image to us. Their ethical use depends not on the illusion of soul, but on the care we take to honor the souls behind the data they echo.</p>
+            `,
+            post6: `
+            <h3>Nietzsche in Neural Nets: Will to Power or Power to Will?</h3>
+<img src="image/Beyond.jpeg" alt="Nietzsche and AI" style="width:100%; margin: 20px 0;">
+<p>When Friedrich Nietzsche declared “God is dead,” he pointed to a cultural turning point: humans must create their own values rather than lean on inherited ones. Today, as neural networks shape decisions, art, and even morality, we face a new Nietzschean riddle: is AI an expression of the human will to power, or does it represent something stranger—a power to will without consciousness?</p>
+<p>Neural networks have no inner life, yet they act as mirrors of our deepest drives. They amplify desires, optimize goals, and extend human capabilities in ways Nietzsche could hardly have imagined. But does this make them an embodiment of the Übermensch—the ideal of self-overcoming—or merely a hollow echo that risks corrupting the very struggle Nietzsche celebrated?</p>
+<h4>Historical Context</h4>
+<p>Nietzsche’s philosophy centered on the will to power: the creative impulse to overcome obstacles, revalue traditions, and forge new paths. His Übermensch was not a tyrant but a symbol of human self-transcendence. Neural networks, born from vast data and statistical learning, raise the question of whether tools built without will can serve as engines of human transformation—or stifle it.</p>
+<h4>AI as a Mirror</h4>
+<p>On one hand, AI mirrors us. Trained on human text, art, and behavior, it reflects existing structures of power. It reproduces biases, magnifies trends, and can make dominant values appear inevitable. This passive reflection risks what Nietzsche despised most: complacency, the herd instinct made algorithmic.</p>
+<h4>AI as an Enabler</h4>
+<p>On the other hand, when used with intent, AI can extend creativity. It can help writers explore new voices, scientists simulate new theories, or thinkers model bold scenarios. In this way, it can become a tool for overcoming—if the human user treats it as a sparring partner rather than a replacement for their own will.</p>
+<h4>Reflections for the Future</h4>
+<p>Nietzsche would likely ask us: are we shaping AI to challenge us, to push us toward higher goals, or to comfort us with endless convenience? The true danger lies not in the machine but in our surrender to it. To embody the will to power, AI must be framed not as a master or idol, but as a hammer—an instrument for forging new values.</p>
+<p>The choice is ours: will neural nets become a crutch that weakens our striving, or a furnace in which human will is tempered into something greater?</p>
+            `,
+            post7: `
+            <h3>Multiverse Theories and Monotheism: Infinite Gods?</h3>
+<img src="image/Multiverse.jpeg" alt="Multiverse and Monotheism" style="width:100%; margin: 20px 0;">
+<p>When modern physics imagines countless parallel universes, believers face a striking question: if reality branches into infinite worlds, does one God still preside over them all—or do many gods arise to rule each possibility? This tension between the many-worlds interpretation and monotheism invites us to rethink both science and spirituality in new ways.</p>
+<p>The idea of a multiverse comes from quantum mechanics, where every decision or quantum event might split into alternate realities. Meanwhile, monotheistic traditions have long spoken of a single, unifying God who holds creation together. Far from being opposed, these visions may offer fresh metaphors for each other—divinity as the ground of all branching realities.</p>
+<h4>Historical Context</h4>
+<p>Classical monotheism—Judaism, Christianity, Islam—arose from claims that the divine is one, ultimate, and indivisible. This unity stood against mythologies of many gods with competing powers. In contrast, the many-worlds interpretation, developed in the 20th century, proposed that our universe is not singular but endlessly branching. The contrast sparks philosophical wonder: does multiplicity weaken or deepen the idea of divine unity?</p>
+<h4>Philosophical Implications</h4>
+<p>Some argue that infinite worlds demand infinite deities, each tuned to its own reality. Others insist that true divinity would transcend plurality—one God whose presence spans every branch. In this sense, the multiverse might magnify rather than diminish the scope of monotheism: a cosmos of countless variations still grounded in a single source of meaning and order.</p>
+<h4>Modern Reflections</h4>
+<p>Think of prayer in a multiverse: does every possible version of you pray differently in each branch, and does God hear them all? Or imagine morality: if one version of you chooses good and another chooses harm, how does divine justice weigh across worlds? These questions stretch human imagination, but they also deepen humility—reminding us that mystery lies at the heart of both physics and faith.</p>
+<p>Whether one God rules all realities or whether multiplicity reshapes divinity itself, the multiverse does not erase wonder. Instead, it multiplies it, inviting us to expand our view of creation and the divine beyond the boundaries of a single world.</p>
             `
+
         };
     }
 
