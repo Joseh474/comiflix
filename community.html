@@ -8,6 +8,7 @@
     <meta name="description" content="Join the Comiflix community: discuss episodes, vote on polls, view leaderboards, and share ideas.">
     <meta name="keywords" content="Comiflix community, forums, polls, discussions">
      <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+     <link rel="stylesheet" href="modal-auth.css">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="icon" href="https://via.placeholder.com/32?text=CF" type="image/x-icon">
@@ -58,19 +59,94 @@
         </div>
     </header>
 
-    <!-- Login Modal -->
+   <!-- Login Modal -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close" id="closeLogin">&times;</span>
             <h3>Login to Comiflix</h3>
-            <form class="login-form">
-                <input type="email" placeholder="Email" required>
-                <input type="password" placeholder="Password" required>
-                <button type="submit">Login</button>
-                <a href="#" class="forgot-pw">Forgot Password?</a>
+          
+    <div class="auth-container">
+        <div class="logo">
+            <h1>Comiflix</h1>
+        </div>
+
+        <div class="auth-tabs">
+            <button class="tab-button active" onclick="switchTab('login')">Login</button>
+            <button class="tab-button" onclick="switchTab('register')">Register</button>
+            <button class="tab-button" onclick="switchTab('forgot')">Forgot</button>
+        </div>
+
+        <!-- Login Form -->
+        <div id="loginForm" class="form-container active">
+            <form id="loginFormElement">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <div class="password-field">
+                        <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">👁️</button>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+            <div class="forgot-password">
+                <a href="#" onclick="switchTab('forgot')">Forgot your password?</a>
+            </div>
+        </div>
+
+        <!-- Register Form -->
+        <div id="registerForm" class="form-container">
+            <form id="registerFormElement">
+                <div class="form-group">
+                    <label for="registerUsername">Username</label>
+                    <input type="text" id="registerUsername" name="username" placeholder="Choose a username" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <div class="password-field">
+                        <input type="password" id="registerPassword" name="password" placeholder="Create a password" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('registerPassword')">👁️</button>
+                    </div>
+                    <div class="password-strength">
+                        <div id="strengthBar" class="strength-bar"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="password-field">
+                        <input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm your password" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">👁️</button>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Register</button>
             </form>
         </div>
+
+        <!-- Forgot Password Form -->
+        <div id="forgotForm" class="form-container">
+            <form id="forgotFormElement">
+                <div class="form-group">
+                    <label for="forgotEmail">Email</label>
+                    <input type="email" id="forgotEmail" name="email" placeholder="Enter your email" required>
+                </div>
+                <button type="submit" class="submit-btn">Send Reset Link</button>
+            </form>
+        </div>
+
+        <div class="back-to-site">
+            <a href="index.html">← Back to Comiflix</a>
+        </div>
     </div>
+        </div>
+    </div>
+
 
     <!-- Community Hero -->
     <section class="community-hero">
@@ -267,6 +343,7 @@
     </footer>
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="modal-auth.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
