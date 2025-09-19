@@ -1,12 +1,13 @@
-<!-- episodes.html -->
+<!-- merch.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Episodes Library - Comiflix</title>
-    <meta name="description" content="Browse our full library of AI-driven episodes categorized by Cosmic Clash, Philosophy Battles, and Science vs Faith.">
-    <meta name="keywords" content="Comiflix episodes, AI debates, philosophy science faith">
+    <title>Merch & Support - Comiflix Store</title>
+    <meta name="description" content="Shop Comiflix merch: T-shirts, posters, ebooks, and more. Support the channel via Patreon or digital downloads.">
+    <meta name="keywords" content="Comiflix merch, AI apparel, ebooks, support">
+    <link rel="stylesheet" href="modal-auth.css">
     <link rel="stylesheet" href="styles.css">
      <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
@@ -39,16 +40,16 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="episodes.html" class="active">Episodes</a></li>
+                    <li><a href="episodes.html">Episodes</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="community.html">Community</a></li>
-                    <li><a href="merch.html">Merch</a></li>
+                    <li><a href="merch.html" class="active">Merch</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
             <div class="header-right">
                 <div class="search-container">
-                    <input type="text" id="searchInput" placeholder="Search episodes by title or tag...">
+                    <input type="text" id="searchInput" placeholder="Search merch...">
                     <button id="searchBtn"><i class="fas fa-search"></i></button>
                 </div>
                 <button id="themeToggle" class="theme-toggle">🌙</button>
@@ -58,199 +59,211 @@
         </div>
     </header>
 
-    <!-- Login Modal -->
+     <!-- Login Modal -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close" id="closeLogin">&times;</span>
             <h3>Login to Comiflix</h3>
-            <form class="login-form">
-                <input type="email" placeholder="Email" required>
-                <input type="password" placeholder="Password" required>
-                <button type="submit">Login</button>
-                <a href="#" class="forgot-pw">Forgot Password?</a>
+          
+    <div class="auth-container">
+        <div class="logo">
+            <h1>Comiflix</h1>
+        </div>
+
+        <div class="auth-tabs">
+            <button class="tab-button active" onclick="switchTab('login')">Login</button>
+            <button class="tab-button" onclick="switchTab('register')">Register</button>
+            <button class="tab-button" onclick="switchTab('forgot')">Forgot</button>
+        </div>
+
+        <!-- Login Form -->
+        <div id="loginForm" class="form-container active">
+            <form id="loginFormElement">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <div class="password-field">
+                        <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">👁️</button>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+            <div class="forgot-password">
+                <a href="#" onclick="switchTab('forgot')">Forgot your password?</a>
+            </div>
+        </div>
+
+        <!-- Register Form -->
+        <div id="registerForm" class="form-container">
+            <form id="registerFormElement">
+                <div class="form-group">
+                    <label for="registerUsername">Username</label>
+                    <input type="text" id="registerUsername" name="username" placeholder="Choose a username" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <div class="password-field">
+                        <input type="password" id="registerPassword" name="password" placeholder="Create a password" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('registerPassword')">👁️</button>
+                    </div>
+                    <div class="password-strength">
+                        <div id="strengthBar" class="strength-bar"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="password-field">
+                        <input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm your password" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">👁️</button>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Register</button>
             </form>
         </div>
+
+        <!-- Forgot Password Form -->
+        <div id="forgotForm" class="form-container">
+            <form id="forgotFormElement">
+                <div class="form-group">
+                    <label for="forgotEmail">Email</label>
+                    <input type="email" id="forgotEmail" name="email" placeholder="Enter your email" required>
+                </div>
+                <button type="submit" class="submit-btn">Send Reset Link</button>
+            </form>
+        </div>
+
+        <div class="back-to-site">
+            <a href="index.html">← Back to Comiflix</a>
+        </div>
+    </div>
+        </div>
     </div>
 
-    <!-- Episodes Hero -->
-    <section class="episodes-hero">
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeCart">&times;</span>
+            <h3>Your Cart</h3>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                <p>Total: $<span id="cartTotal">0.00</span></p>
+                <button onclick="checkout()">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Merch Hero -->
+    <section class="merch-hero">
         <div class="container">
-            <h1>Episode Library</h1>
-            <p>Immerse yourself in over 50 hours of AI-fueled intellectual combat. Filter, search, and discover your next mind-bender.</p>
+            <h1>Cosmic Swag</h1>
+            <p>Wear your philosophy, download your debates. Every purchase fuels more AI epics.</p>
         </div>
     </section>
 
-    <!-- Episodes Section -->
-    <section class="episodes-section">
+    <!-- Support Section -->
+    <section class="support-section">
         <div class="container">
-            <div class="filters">
-                <button class="filter-btn active" data-category="all">All Episodes</button>
-                <button class="filter-btn" data-category="cosmic-clash">Cosmic Clash</button>
-                <button class="filter-btn" data-category="philosophy-battles">Philosophy Battles</button>
-                <button class="filter-btn" data-category="science-vs-faith">Science vs Faith</button>
-                <button class="filter-btn" data-category="specials">Specials</button>
-            </div>
-            <div class="sort-options">
-                <label>Sort by: </label>
-                <select id="sortSelect">
-                    <option value="date-desc">Latest</option>
-                    <option value="date-asc">Oldest</option>
-                    <option value="views-desc">Most Viewed</option>
-                    <option value="title-asc">A-Z</option>
-                </select>
-            </div>
-            <div id="episodesGrid" class="episodes-grid">
-                <div class="episode-card" data-category="cosmic-clash" data-title="Quantum Gods" data-date="2025-09-10" data-views="1500000">
-                    <img src="image/QG.jpeg" alt="Quantum Gods Thumbnail" onclick="openVideoModal('https://www.youtube.com/embed/example1')">
-                    <div class="episode-info">
-                        <h3>Quantum Gods: Reality's Veil</h3>
-                        <p>Socrates and Einstein unravel if the universe is a divine simulation.</p>
-                        <div class="episode-meta">
-                            <span class="date">Sep 10, 2025</span>
-                            <span class="views">1.5M views</span>
-                        </div>
-                        <div class="tags">
-                            <span class="tag">philosophy</span>
-                            <span class="tag">science</span>
-                            <span class="tag">AI</span>
-                            <span class="tag">cosmic</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="episode-card" data-category="philosophy-battles" data-title="Eternal Recurrence" data-date="2025-08-25" data-views="850000">
-                    <img src="image/ER.jpeg" alt="Eternal Recurrence Thumbnail" onclick="openVideoModal('https://www.youtube.com/embed/example2')">
-                    <div class="episode-info">
-                        <h3>Eternal Recurrence: Loops of Fate</h3>
-                        <p>Nietzsche vs. Augustine: Is life a cycle or a straight path to salvation?</p>
-                        <div class="episode-meta">
-                            <span class="date">Aug 25, 2025</span>
-                            <span class="views">850K views</span>
-                        </div>
-                        <div class="tags">
-                            <span class="tag">philosophy</span>
-                            <span class="tag">faith</span>
-                            <span class="tag">eternal</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="episode-card" data-category="science-vs-faith" data-title="Big Bang Belief" data-date="2025-08-15" data-views="1200000">
-                    <img src="image/BB.jpeg" alt="Big Bang Belief Thumbnail" onclick="openVideoModal('https://www.youtube.com/embed/example3')">
-                    <div class="episode-info">
-                        <h3>Big Bang Belief: Origins Clash</h3>
-                        <p>Scientific genesis meets scriptural creation in an explosive debate.</p>
-                        <div class="episode-meta">
-                            <span class="date">Aug 15, 2025</span>
-                            <span class="views">1.2M views</span>
-                        </div>
-                        <div class="tags">
-                            <span class="tag">science</span>
-                            <span class="tag">faith</span>
-                            <span class="tag">origins</span>
-                            <span class="tag">AI</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="episode-card" data-category="cosmic-clash" data-title="Black Hole Souls" data-date="2025-07-20" data-views="950000">
-                    <img src="image/BH.jpeg" alt="Black Hole Souls Thumbnail" onclick="openVideoModal('https://www.youtube.com/embed/example6')">
-                    <div class="episode-info">
-                        <h3>Black Hole Souls: Event Horizon Ethics</h3>
-                        <p>Do singularities swallow souls? Hawking's ghost vs. Dante.</p>
-                        <div class="episode-meta">
-                            <span class="date">Jul 20, 2025</span>
-                            <span class="views">950K views</span>
-                        </div>
-                        <div class="tags">
-                            <span class="tag">physics</span>
-                            <span class="tag">theology</span>
-                            <span class="tag">cosmic</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="episode-card" data-category="philosophy-battles" data-title="Free Will Code" data-date="2025-09-05" data-views="600000">
-                    <img src="image/FWC.jpeg" alt="Free Will Code Thumbnail" onclick="openVideoModal('https://www.youtube.com/embed/example7')">
-                    <div class="episode-info">
-                        <h3>Free Will in Code: Determinism Debugged</h3>
-                        <p>Descartes and Turing on whether AI has volition.</p>
-                        <div class="episode-meta">
-                            <span class="date">Sep 5, 2025</span>
-                            <span class="views">600K views</span>
-                        </div>
-                        <div class="tags">
-                            <span class="tag">philosophy</span>
-                            <span class="tag">AI</span>
-                            <span class="tag">free will</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="episode-card" data-category="specials" data-title="AI Apocalypse" data-date="2025-06-30" data-views="2000000">
-                    <img src="image/AIA.jpeg" alt="AI Apocalypse Thumbnail" onclick="openVideoModal('https://www.youtube.com/embed/example8')">
-                    <div class="episode-info">
-                        <h3>Special: AI Apocalypse Now?</h3>
-                        <p>All-stars debate the end times in silicon.</p>
-                        <div class="episode-meta">
-                            <span class="date">Jun 30, 2025</span>
-                            <span class="views">2M views</span>
-                        </div>
-                        <div class="tags">
-                            <span class="tag">special</span>
-                            <span class="tag">apocalypse</span>
-                            <span class="tag">AI</span>
-                            <span class="tag">ethics</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Add more episodes to make it longer -->
-                <div class="episode-card" data-category="science-vs-faith" data-title="Evolution Eden" data-date="2025-05-15" data-views="1100000">
-                    <img src="image/EE.jpeg" alt="Evolution Eden Thumbnail" onclick="openVideoModal('https://www.youtube.com/embed/example9')">
-                    <div class="episode-info">
-                        <h3>Evolution vs Eden: Darwin's Garden</h3>
-                        <p>Genesis revisited through natural selection.</p>
-                        <div class="episode-meta">
-                            <span class="date">May 15, 2025</span>
-                            <span class="views">1.1M views</span>
-                        </div>
-                        <div class="tags">
-                            <span class="tag">evolution</span>
-                            <span class="tag">faith</span>
-                            <span class="tag">biology</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="episode-card" data-category="cosmic-clash" data-title="String Theory Saints" data-date="2025-04-20" data-views="700000">
-                    <img src="image/HE.jpeg" alt="String Theory Saints Thumbnail" onclick="openVideoModal('https://www.youtube.com/embed/example10')">
-                    <div class="episode-info">
-                        <h3>String Theory Saints: Vibrating Divinity</h3>
-                        <p>Multidimensional miracles or math?</p>
-                        <div class="episode-meta">
-                            <span class="date">Apr 20, 2025</span>
-                            <span class="views">700K views</span>
-                        </div>
-                        <div class="tags">
-                            <span class="tag">physics</span>
-                            <span class="tag">theology</span>
-                            <span class="tag">strings</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="noResults" class="no-results" style="display: none;">
-                <p>No episodes found. Try a different search or filter.</p>
-            </div>
-            <div class="pagination">
-                <button id="prevPage">Previous</button>
-                <span id="pageInfo">Page 1 of 10</span>
-                <button id="nextPage">Next</button>
+            <h2>One-Time Support</h2>
+            <div class="support-links">
+                <a href="#" class="support-btn" onclick="window.open('https://patreon.com/comiflix', '_blank')">
+                    <i class="fab fa-patreon"></i> Patreon
+                </a>
+                <a href="#" class="support-btn" onclick="window.open('https://buymeacoffee.com/comiflix', '_blank')">
+                    <i class="fas fa-coffee"></i> Buy Me a Coffee
+                </a>
+                <a href="#" class="support-btn" onclick="donate(5)">
+                    <i class="fas fa-heart"></i> $5 Tip
+                </a>
+                <a href="#" class="support-btn" onclick="donate(10)">
+                    <i class="fas fa-heart"></i> $10 Tip
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Video Modal -->
-    <div id="videoModal" class="video-modal">
-        <span class="close-video" id="closeVideo">&times;</span>
-        <div class="video-container">
-            <iframe id="videoIframe" src="" frameborder="0" allowfullscreen></iframe>
+    <!-- Digital Store -->
+    <section class="digital-section">
+        <div class="container">
+            <h2>Digital Downloads</h2>
+            <div class="product-grid">
+                <div class="product-card" data-price="9.99" onclick="addToCart('ebook1', 'Dialogues Ebook', 9.99)">
+                    <img src="image/DIALOG.jpeg" alt="Dialogues Ebook">
+                    <h3>Ultimate Dialogues Ebook</h3>
+                    <p>Compiled transcripts and analyses from Season 1.</p>
+                    <span class="price">$9.99</span>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+                <div class="product-card" data-price="4.99" onclick="addToCart('wallpaper1', 'Cosmic Wallpapers', 4.99)">
+                    <img src="image/CA.jpeg" alt="Cosmic Wallpapers">
+                    <h3>Cosmic AI Wallpapers Pack</h3>
+                    <p>10 high-res images inspired by our episodes.</p>
+                    <span class="price">$4.99</span>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+                <div class="product-card" data-price="19.99" onclick="addToCart('art1', 'AI Art Prints', 19.99)">
+                    <img src="image/Art Prints.jpeg" alt="AI Art Prints">
+                    <h3>Digital AI Art Prints</h3>
+                    <p>Exclusive character portraits for your walls (digital).</p>
+                    <span class="price">$19.99</span>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+                <div class="product-card" data-price="14.99" onclick="addToCart('soundtrack1', 'Debate Soundtrack', 14.99)">
+                    <img src="image/PP.jpeg" alt="Soundtrack">
+                    <h3>Episode Soundtrack Album</h3>
+                    <p>Original cosmic scores from our productions.</p>
+                    <span class="price">$14.99</span>
+                    <button class="add-btn">Add to Cart</button>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Physical Merch -->
+    <section class="physical-section">
+        <div class="container">
+            <h2>Physical Merch</h2>
+            <p>Coming soon: High-quality prints and apparel. Pre-order now for early access!</p>
+            <div class="product-grid">
+                <div class="product-card" data-price="24.99" onclick="preorder('tshirt1', 'Socrates T-Shirt', 24.99)">
+                    <img src="image/TT.jpeg" alt="Socrates T-Shirt">
+                    <h3>Socrates "Question Everything" T-Shirt</h3>
+                    <p>Soft cotton with glowing neon print.</p>
+                    <span class="price">$24.99</span>
+                    <button class="preorder-btn">Pre-Order</button>
+                </div>
+                <div class="product-card" data-price="29.99" onclick="preorder('poster1', 'Debate Poster', 29.99)">
+                    <img src="image/DEBATE.jpg" alt="Debate Poster">
+                    <h3>Quantum Gods Debate Poster</h3>
+                    <p>24x36 inch archival print.</p>
+                    <span class="price">$29.99</span>
+                    <button class="preorder-btn">Pre-Order</button>
+                </div>
+                <div class="product-card" data-price="19.99" onclick="preorder('mug1', 'Quantum Mug', 19.99)">
+                    <img src="image/EIN.jpg" alt="Quantum Mug">
+                    <h3>Einstein "Relativity Brew" Mug</h3>
+                    <p>Ceramic with inspirational quote.</p>
+                    <span class="price">$19.99</span>
+                    <button class="preorder-btn">Pre-Order</button>
+                </div>
+                <div class="product-card" data-price="34.99" onclick="preorder('hoodie1', 'AI Hoodie', 34.99)">
+                    <img src="image/HOO.jpg" alt="AI Hoodie">
+                    <h3>Nietzsche Neural Net Hoodie</h3>
+                    <p>Cozy fleece for late-night philosophizing.</p>
+                    <span class="price">$34.99</span>
+                    <button class="preorder-btn">Pre-Order</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -294,6 +307,7 @@
     </footer>
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="modal-auth.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
