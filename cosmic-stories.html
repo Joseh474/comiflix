@@ -1,0 +1,447 @@
+<!-- community.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - Comiflix Hub</title>
+    <meta name="description" content="Join the Comiflix community: discuss episodes, vote on polls, view leaderboards, and share ideas.">
+    <meta name="keywords" content="Comiflix community, forums, polls, discussions">
+     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+     <link rel="stylesheet" href="modal-auth.css">
+     <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://via.placeholder.com/32?text=CF" type="image/x-icon">
+</head>
+<body class="dark-mode">
+    <!-- Top Header -->
+    <header class="top-header">
+        <div class="container">
+            <span class="email">josehmuia474@gmail.com</span>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                <a href="#" aria-label="Patreon"><i class="fab fa-patreon"></i></a>
+            </div>
+            <button class="login-btn" id="loginBtn">Login</button>
+        </div>
+    </header>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>Comiflix</h1>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="episodes.html">Episodes</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="community.html" class="active">Community</a></li>
+                    <li><a href="cosmic-stories.html" class="active">CS</a></li>
+                    <li><a href="merch.html">Merch</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search community...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                <button id="themeToggle" class="theme-toggle">🌙</button>
+                <button id="cartBtn" class="cart-btn"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></button>
+                <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+        </div>
+    </header>
+
+   <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h3>Login to Comiflix</h3>
+          
+    <div class="auth-container">
+        <div class="logo">
+            <h1>Comiflix</h1>
+        </div>
+
+        <div class="auth-tabs">
+            <button class="tab-button active" onclick="switchTab('login')">Login</button>
+            <button class="tab-button" onclick="switchTab('register')">Register</button>
+            <button class="tab-button" onclick="switchTab('forgot')">Forgot</button>
+        </div>
+
+        <!-- Login Form -->
+        <div id="loginForm" class="form-container active">
+            <form id="loginFormElement">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <div class="password-field">
+                        <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">👁️</button>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+            <div class="forgot-password">
+                <a href="#" onclick="switchTab('forgot')">Forgot your password?</a>
+            </div>
+        </div>
+
+        <!-- Register Form -->
+        <div id="registerForm" class="form-container">
+            <form id="registerFormElement">
+                <div class="form-group">
+                    <label for="registerUsername">Username</label>
+                    <input type="text" id="registerUsername" name="username" placeholder="Choose a username" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <div class="password-field">
+                        <input type="password" id="registerPassword" name="password" placeholder="Create a password" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('registerPassword')">👁️</button>
+                    </div>
+                    <div class="password-strength">
+                        <div id="strengthBar" class="strength-bar"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="password-field">
+                        <input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm your password" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">👁️</button>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+        </div>
+
+        <!-- Forgot Password Form -->
+        <div id="forgotForm" class="form-container">
+            <form id="forgotFormElement">
+                <div class="form-group">
+                    <label for="forgotEmail">Email</label>
+                    <input type="email" id="forgotEmail" name="email" placeholder="Enter your email" required>
+                </div>
+                <button type="submit" class="submit-btn">Send Reset Link</button>
+            </form>
+        </div>
+
+        <div class="back-to-site">
+            <a href="index.html">← Back to Comiflix</a>
+        </div>
+    </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="cosmic-hero">
+        <div class="stars-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="cosmic-title">Cosmic Stories</h1>
+                <p class="cosmic-tagline">Journey Through the Universe's Greatest Mysteries</p>
+                <p class="hero-subtitle">Discover cutting-edge research, mind-bending facts, and the breathtaking beauty of our cosmos</p>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Featured Story -->
+    <section class="featured-story">
+        <div class="container">
+            <h2 class="section-title">Featured Story</h2>
+            <div class="featured-content">
+                <div class="featured-image">
+                    <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800" alt="Black Hole Discovery">
+                    <div class="featured-badge">Breaking Research</div>
+                </div>
+                <div class="featured-info">
+                    <div class="story-meta">
+                        <span class="category"><i class="fas fa-atom"></i> Astrophysics</span>
+                        <span class="date"><i class="far fa-calendar"></i> October 1, 2025</span>
+                        <span class="read-time"><i class="far fa-clock"></i> 8 min read</span>
+                    </div>
+                    <h3>Supermassive Black Hole Discovered at Dawn of Universe</h3>
+                    <p>Astronomers have detected one of the most massive black holes ever discovered, existing just 470 million years after the Big Bang. This groundbreaking finding challenges our understanding of how quickly these cosmic giants could form in the early universe.</p>
+                    <button class="read-more-btn" onclick="openStoryModal(0)">Read Full Story <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Filter -->
+    <section class="categories-section">
+        <div class="container">
+            <div class="categories-filter">
+                <button class="category-btn active" data-category="all">
+                    <i class="fas fa-globe"></i> All Stories
+                </button>
+                <button class="category-btn" data-category="research">
+                    <i class="fas fa-flask"></i> Research
+                </button>
+                <button class="category-btn" data-category="facts">
+                    <i class="fas fa-lightbulb"></i> Cosmic Facts
+                </button>
+                <button class="category-btn" data-category="images">
+                    <i class="fas fa-camera"></i> Gallery
+                </button>
+                <button class="category-btn" data-category="discoveries">
+                    <i class="fas fa-satellite"></i> Discoveries
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stories Grid -->
+    <section class="stories-grid-section">
+        <div class="container">
+            <div class="stories-grid" id="storiesGrid">
+                <!-- Research Stories -->
+                <article class="story-card" data-category="research">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=600" alt="Dark Matter Research">
+                        <div class="story-overlay">
+                            <button class="view-btn" onclick="openStoryModal(1)"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-category research">Research</span>
+                        <h3>Dark Matter's Hidden Signature Finally Detected</h3>
+                        <p>Scientists at CERN have detected unprecedented signals that may finally prove the existence of dark matter particles...</p>
+                        <div class="story-footer">
+                            <span class="author"><i class="fas fa-user"></i> Dr. Sarah Chen</span>
+                            <span class="views"><i class="fas fa-eye"></i> 45K views</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="story-card" data-category="facts">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=600" alt="Milky Way Facts">
+                        <div class="story-overlay">
+                            <button class="view-btn" onclick="openStoryModal(2)"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-category facts">Cosmic Fact</span>
+                        <h3>10 Mind-Bending Facts About Our Galaxy</h3>
+                        <p>The Milky Way contains over 100 billion stars, but that's just the beginning of its incredible story...</p>
+                        <div class="story-footer">
+                            <span class="author"><i class="fas fa-user"></i> Prof. James Webb</span>
+                            <span class="views"><i class="fas fa-eye"></i> 128K views</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="story-card" data-category="images">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1464802686167-b939a6910659?w=600" alt="Nebula Gallery">
+                        <div class="story-overlay">
+                            <button class="view-btn" onclick="openStoryModal(3)"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-category images">Gallery</span>
+                        <h3>Breathtaking Nebula: Pillars of Creation Reimagined</h3>
+                        <p>New James Webb Space Telescope images reveal unprecedented detail in these iconic stellar nurseries...</p>
+                        <div class="story-footer">
+                            <span class="author"><i class="fas fa-user"></i> NASA/ESA</span>
+                            <span class="views"><i class="fas fa-eye"></i> 256K views</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="story-card" data-category="discoveries">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=600" alt="Exoplanet Discovery">
+                        <div class="story-overlay">
+                            <button class="view-btn" onclick="openStoryModal(4)"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-category discoveries">Discovery</span>
+                        <h3>Earth-Like Planet Found in Habitable Zone</h3>
+                        <p>Astronomers have discovered a potentially habitable exoplanet orbiting a sun-like star just 42 light-years away...</p>
+                        <div class="story-footer">
+                            <span class="author"><i class="fas fa-user"></i> Dr. Maria Rodriguez</span>
+                            <span class="views"><i class="fas fa-eye"></i> 89K views</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="story-card" data-category="research">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1543722530-d2c3201371e7?w=600" alt="Gravitational Waves">
+                        <div class="story-overlay">
+                            <button class="view-btn" onclick="openStoryModal(5)"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-category research">Research</span>
+                        <h3>Gravitational Wave Background Finally Confirmed</h3>
+                        <p>Pulsar timing arrays reveal the cosmic hum of merging supermassive black holes throughout the universe...</p>
+                        <div class="story-footer">
+                            <span class="author"><i class="fas fa-user"></i> Dr. Alan Kumar</span>
+                            <span class="views"><i class="fas fa-eye"></i> 67K views</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="story-card" data-category="facts">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600" alt="Time Dilation">
+                        <div class="story-overlay">
+                            <button class="view-btn" onclick="openStoryModal(6)"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-category facts">Cosmic Fact</span>
+                        <h3>How Time Slows Down Near Black Holes</h3>
+                        <p>Einstein's theory of relativity predicts extreme time dilation effects near massive objects. Here's how it works...</p>
+                        <div class="story-footer">
+                            <span class="author"><i class="fas fa-user"></i> Prof. Lisa Anderson</span>
+                            <span class="views"><i class="fas fa-eye"></i> 102K views</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- No Results Message -->
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <p>No stories found in this category</p>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-section">
+                <button class="load-more-btn" id="loadMoreBtn">
+                    <i class="fas fa-sync-alt"></i> Load More Stories
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cosmic Facts Sidebar -->
+    <section class="cosmic-facts-section">
+        <div class="container">
+            <h2 class="section-title">Quick Cosmic Facts</h2>
+            <div class="facts-carousel">
+                <div class="fact-card active">
+                    <i class="fas fa-star"></i>
+                    <p>The observable universe contains approximately 2 trillion galaxies</p>
+                </div>
+                <div class="fact-card">
+                    <i class="fas fa-rocket"></i>
+                    <p>Light from the Sun takes 8 minutes and 20 seconds to reach Earth</p>
+                </div>
+                <div class="fact-card">
+                    <i class="fas fa-meteor"></i>
+                    <p>A day on Venus is longer than its year around the Sun</p>
+                </div>
+                <div class="fact-card">
+                    <i class="fas fa-moon"></i>
+                    <p>Neutron stars can spin 600 times per second</p>
+                </div>
+            </div>
+            <div class="carousel-dots">
+                <span class="dot active" onclick="showFact(0)"></span>
+                <span class="dot" onclick="showFact(1)"></span>
+                <span class="dot" onclick="showFact(2)"></span>
+                <span class="dot" onclick="showFact(3)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section cosmic-newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <i class="fas fa-space-shuttle newsletter-icon"></i>
+                <h2>Join the Cosmic Journey</h2>
+                <p>Get weekly updates on the latest cosmic discoveries, research breakthroughs, and stunning space imagery</p>
+                <form class="newsletter-form-inline" id="cosmicNewsletterForm">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit"><i class="fas fa-paper-plane"></i> Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Modal -->
+    <div id="storyModal" class="story-modal">
+        <div class="modal-content large">
+            <span class="close" id="closeStoryModal">&times;</span>
+            <div class="modal-story-content" id="modalStoryContent">
+                <!-- Content will be dynamically loaded -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Comiflix</h4>
+                    <p>Where ideas collide in the cosmos of AI.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="episodes.html">Episodes</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="cosmic-stories.html">CS</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="community.html">Forum</a></li>
+                        <li><a href="merch.html">Merch</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Comiflix. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="modal-auth.js"></script>
+    <script src="script.js"></script>
+    <script src="cosmic-stories.js"></script>
+</body>
+</html>
