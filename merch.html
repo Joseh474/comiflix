@@ -7,57 +7,12 @@
     <title>Merch & Support - Comiflix Store</title>
     <meta name="description" content="Shop Comiflix merch: T-shirts, posters, ebooks, and more. Support the channel via Patreon or digital downloads.">
     <meta name="keywords" content="Comiflix merch, AI apparel, ebooks, support">
+    <link rel="stylesheet" href="modal-auth.css">
     <link rel="stylesheet" href="styles.css">
      <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://via.placeholder.com/32?text=CF" type="image/x-icon">
-</head>
-<body class="dark-mode">
-    <!-- Top Header -->
-    <header class="top-header">
-        <div class="container">
-            <span class="email">josehmuia474@gmail.com</span>
-            <div class="social-links">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                <a href="#" aria-label="Patreon"><i class="fab fa-patreon"></i></a>
-            </div>
-            <button class="login-btn" id="loginBtn">Login</button>
-        </div>
-    </header>
-
-    <!-- Main Header -->
-    <header class="main-header">
-        <div class="container">
-            <div class="logo">
-                <h1>Comiflix</h1>
-            </div>
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="episodes.html">Episodes</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="community.html">Community</a></li>
-                    <!-- community.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community - Comiflix Hub</title>
-    <meta name="description" content="Join the Comiflix community: discuss episodes, vote on polls, view leaderboards, and share ideas.">
-    <meta name="keywords" content="Comiflix community, forums, polls, discussions">
-     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-     <link rel="stylesheet" href="modal-auth.css">
      <!-- Font Awesome CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="icon" href="https://via.placeholder.com/32?text=CF" type="image/x-icon">
 </head>
@@ -90,15 +45,15 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="episodes.html">Episodes</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="community.html" class="active">Community</a></li>
-                    <li><a href="cosmic-stories.html" class="active">CS</a></li>
-                    <li><a href="merch.html">Merch</a></li>
+                      <li><a href="cosmic-stories.html" class="active">CS</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="merch.html" class="active">Merch</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
             <div class="header-right">
                 <div class="search-container">
-                    <input type="text" id="searchInput" placeholder="Search community...">
+                    <input type="text" id="searchInput" placeholder="Search merch...">
                     <button id="searchBtn"><i class="fas fa-search"></i></button>
                 </div>
                 <button id="themeToggle" class="theme-toggle">🌙</button>
@@ -108,7 +63,7 @@
         </div>
     </header>
 
-   <!-- Login Modal -->
+     <!-- Login Modal -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close" id="closeLogin">&times;</span>
@@ -195,35 +150,7 @@
     </div>
         </div>
     </div>
-                    <li><a href="merch.html" class="active">Merch</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="header-right">
-                <div class="search-container">
-                    <input type="text" id="searchInput" placeholder="Search merch...">
-                    <button id="searchBtn"><i class="fas fa-search"></i></button>
-                </div>
-                <button id="themeToggle" class="theme-toggle">🌙</button>
-                <button id="cartBtn" class="cart-btn"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></button>
-                <div class="bx bx-menu" id="menu-icon"></div>
-            </div>
-        </div>
-    </header>
 
-    <!-- Login Modal -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeLogin">&times;</span>
-            <h3>Login to Comiflix</h3>
-            <form class="login-form">
-                <input type="email" placeholder="Email" required>
-                <input type="password" placeholder="Password" required>
-                <button type="submit">Login</button>
-                <a href="#" class="forgot-pw">Forgot Password?</a>
-            </form>
-        </div>
-    </div>
 
     <!-- Cart Modal -->
     <div id="cartModal" class="modal">
@@ -384,8 +311,7 @@
     </footer>
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="modal-auth.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
-
-
