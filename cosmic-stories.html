@@ -1,17 +1,12 @@
-<!-- community.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community - Comiflix Hub</title>
-    <meta name="description" content="Join the Comiflix community: discuss episodes, vote on polls, view leaderboards, and share ideas.">
-    <meta name="keywords" content="Comiflix community, forums, polls, discussions">
-     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-     <link rel="stylesheet" href="modal-auth.css">
-     <!-- Font Awesome CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+    <title>Cosmic Stories - Comiflix Hub</title>
+    <meta name="description" content="Explore the universe's greatest mysteries, cutting-edge research, and breathtaking cosmic discoveries.">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="icon" href="https://via.placeholder.com/32?text=CF" type="image/x-icon">
@@ -45,7 +40,7 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="episodes.html">Episodes</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="community.html" class="active">Community</a></li>
+                    <li><a href="community.html">Community</a></li>
                     <li><a href="cosmic-stories.html" class="active">CS</a></li>
                     <li><a href="merch.html">Merch</a></li>
                     <li><a href="contact.html">Contact</a></li>
@@ -53,7 +48,7 @@
             </nav>
             <div class="header-right">
                 <div class="search-container">
-                    <input type="text" id="searchInput" placeholder="Search community...">
+                    <input type="text" id="searchInput" placeholder="Search stories...">
                     <button id="searchBtn"><i class="fas fa-search"></i></button>
                 </div>
                 <button id="themeToggle" class="theme-toggle">🌙</button>
@@ -62,94 +57,6 @@
             </div>
         </div>
     </header>
-
-   <!-- Login Modal -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeLogin">&times;</span>
-            <h3>Login to Comiflix</h3>
-          
-    <div class="auth-container">
-        <div class="logo">
-            <h1>Comiflix</h1>
-        </div>
-
-        <div class="auth-tabs">
-            <button class="tab-button active" onclick="switchTab('login')">Login</button>
-            <button class="tab-button" onclick="switchTab('register')">Register</button>
-            <button class="tab-button" onclick="switchTab('forgot')">Forgot</button>
-        </div>
-
-        <!-- Login Form -->
-        <div id="loginForm" class="form-container active">
-            <form id="loginFormElement">
-                <div class="form-group">
-                    <label for="loginEmail">Email</label>
-                    <input type="email" id="loginEmail" name="email" placeholder="Enter your email" required>
-                </div>
-                <div class="form-group">
-                    <label for="loginPassword">Password</label>
-                    <div class="password-field">
-                        <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
-                        <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">👁️</button>
-                    </div>
-                </div>
-                <button type="submit" class="submit-btn">Login</button>
-            </form>
-            <div class="forgot-password">
-                <a href="#" onclick="switchTab('forgot')">Forgot your password?</a>
-            </div>
-        </div>
-
-        <!-- Register Form -->
-        <div id="registerForm" class="form-container">
-            <form id="registerFormElement">
-                <div class="form-group">
-                    <label for="registerUsername">Username</label>
-                    <input type="text" id="registerUsername" name="username" placeholder="Choose a username" required>
-                </div>
-                <div class="form-group">
-                    <label for="registerEmail">Email</label>
-                    <input type="email" id="registerEmail" name="email" placeholder="Enter your email" required>
-                </div>
-                <div class="form-group">
-                    <label for="registerPassword">Password</label>
-                    <div class="password-field">
-                        <input type="password" id="registerPassword" name="password" placeholder="Create a password" required>
-                        <button type="button" class="password-toggle" onclick="togglePassword('registerPassword')">👁️</button>
-                    </div>
-                    <div class="password-strength">
-                        <div id="strengthBar" class="strength-bar"></div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="confirmPassword">Confirm Password</label>
-                    <div class="password-field">
-                        <input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm your password" required>
-                        <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">👁️</button>
-                    </div>
-                </div>
-                <button type="submit" class="submit-btn">Register</button>
-            </form>
-        </div>
-
-        <!-- Forgot Password Form -->
-        <div id="forgotForm" class="form-container">
-            <form id="forgotFormElement">
-                <div class="form-group">
-                    <label for="forgotEmail">Email</label>
-                    <input type="email" id="forgotEmail" name="email" placeholder="Enter your email" required>
-                </div>
-                <button type="submit" class="submit-btn">Send Reset Link</button>
-            </form>
-        </div>
-
-        <div class="back-to-site">
-            <a href="index.html">← Back to Comiflix</a>
-        </div>
-    </div>
-        </div>
-    </div>
 
     <!-- Hero Section -->
     <section class="cosmic-hero">
@@ -216,7 +123,7 @@
     <section class="stories-grid-section">
         <div class="container">
             <div class="stories-grid" id="storiesGrid">
-                <!-- Research Stories -->
+                <!-- Story 1: Dark Matter -->
                 <article class="story-card" data-category="research">
                     <div class="story-image">
                         <img src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=600" alt="Dark Matter Research">
@@ -227,7 +134,7 @@
                     <div class="story-content">
                         <span class="story-category research">Research</span>
                         <h3>Dark Matter's Hidden Signature Finally Detected</h3>
-                        <p>Scientists at CERN have detected unprecedented signals that may finally prove the existence of dark matter particles...</p>
+                        <p>Scientists at CERN have detected unprecedented signals that may finally prove the existence of dark matter particles, solving one of physics' greatest mysteries...</p>
                         <div class="story-footer">
                             <span class="author"><i class="fas fa-user"></i> Dr. Sarah Chen</span>
                             <span class="views"><i class="fas fa-eye"></i> 45K views</span>
@@ -235,6 +142,7 @@
                     </div>
                 </article>
 
+                <!-- Story 2: Milky Way Facts -->
                 <article class="story-card" data-category="facts">
                     <div class="story-image">
                         <img src="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=600" alt="Milky Way Facts">
@@ -245,7 +153,7 @@
                     <div class="story-content">
                         <span class="story-category facts">Cosmic Fact</span>
                         <h3>10 Mind-Bending Facts About Our Galaxy</h3>
-                        <p>The Milky Way contains over 100 billion stars, but that's just the beginning of its incredible story...</p>
+                        <p>The Milky Way contains over 100 billion stars, but that's just the beginning of its incredible story. Discover the secrets of our cosmic home...</p>
                         <div class="story-footer">
                             <span class="author"><i class="fas fa-user"></i> Prof. James Webb</span>
                             <span class="views"><i class="fas fa-eye"></i> 128K views</span>
@@ -253,6 +161,7 @@
                     </div>
                 </article>
 
+                <!-- Story 3: Nebula Gallery -->
                 <article class="story-card" data-category="images">
                     <div class="story-image">
                         <img src="https://images.unsplash.com/photo-1464802686167-b939a6910659?w=600" alt="Nebula Gallery">
@@ -263,7 +172,7 @@
                     <div class="story-content">
                         <span class="story-category images">Gallery</span>
                         <h3>Breathtaking Nebula: Pillars of Creation Reimagined</h3>
-                        <p>New James Webb Space Telescope images reveal unprecedented detail in these iconic stellar nurseries...</p>
+                        <p>New James Webb Space Telescope images reveal unprecedented detail in these iconic stellar nurseries where stars are born...</p>
                         <div class="story-footer">
                             <span class="author"><i class="fas fa-user"></i> NASA/ESA</span>
                             <span class="views"><i class="fas fa-eye"></i> 256K views</span>
@@ -271,6 +180,7 @@
                     </div>
                 </article>
 
+                <!-- Story 4: Exoplanet Discovery -->
                 <article class="story-card" data-category="discoveries">
                     <div class="story-image">
                         <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=600" alt="Exoplanet Discovery">
@@ -281,7 +191,7 @@
                     <div class="story-content">
                         <span class="story-category discoveries">Discovery</span>
                         <h3>Earth-Like Planet Found in Habitable Zone</h3>
-                        <p>Astronomers have discovered a potentially habitable exoplanet orbiting a sun-like star just 42 light-years away...</p>
+                        <p>Astronomers have discovered a potentially habitable exoplanet orbiting a sun-like star just 42 light-years away. Could this be humanity's future home?</p>
                         <div class="story-footer">
                             <span class="author"><i class="fas fa-user"></i> Dr. Maria Rodriguez</span>
                             <span class="views"><i class="fas fa-eye"></i> 89K views</span>
@@ -289,6 +199,7 @@
                     </div>
                 </article>
 
+                <!-- Story 5: Gravitational Waves -->
                 <article class="story-card" data-category="research">
                     <div class="story-image">
                         <img src="https://images.unsplash.com/photo-1543722530-d2c3201371e7?w=600" alt="Gravitational Waves">
@@ -299,7 +210,7 @@
                     <div class="story-content">
                         <span class="story-category research">Research</span>
                         <h3>Gravitational Wave Background Finally Confirmed</h3>
-                        <p>Pulsar timing arrays reveal the cosmic hum of merging supermassive black holes throughout the universe...</p>
+                        <p>Pulsar timing arrays reveal the cosmic hum of merging supermassive black holes throughout the universe, confirming Einstein's century-old prediction...</p>
                         <div class="story-footer">
                             <span class="author"><i class="fas fa-user"></i> Dr. Alan Kumar</span>
                             <span class="views"><i class="fas fa-eye"></i> 67K views</span>
@@ -307,6 +218,7 @@
                     </div>
                 </article>
 
+                <!-- Story 6: Time Dilation -->
                 <article class="story-card" data-category="facts">
                     <div class="story-image">
                         <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600" alt="Time Dilation">
@@ -317,10 +229,238 @@
                     <div class="story-content">
                         <span class="story-category facts">Cosmic Fact</span>
                         <h3>How Time Slows Down Near Black Holes</h3>
-                        <p>Einstein's theory of relativity predicts extreme time dilation effects near massive objects. Here's how it works...</p>
+                        <p>Einstein's theory of relativity predicts extreme time dilation effects near massive objects. Here's how it works and what it means for space travelers...</p>
                         <div class="story-footer">
                             <span class="author"><i class="fas fa-user"></i> Prof. Lisa Anderson</span>
                             <span class="views"><i class="fas fa-eye"></i> 102K views</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- NEW Story 7: Neutron Star Collision -->
+                <article class="story-card" data-category="discoveries">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600" alt="Neutron Star Collision">
+                        <div class="story-overlay">
+                            <button class="view-btn" onclick="openStoryModal(7)"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-category discoveries">Discovery</span>
+                        <h3>Neutron Star Collision Creates Gold Rush in Space</h3>
+                        <p>Witness the cosmic forge where all the gold in the universe is born. This neutron star merger produced more gold than exists in our entire solar system...</p>
+                        <div class="story-footer">
+                            <span class="author"><i class="fas fa-user"></i> Dr. Elena Vasquez</span>
+                            <span class="views"><i class="fas fa-eye"></i> 93K views</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- NEW Story 8: Cosmic Microwave Background -->
+                <article class="story-card" data-category="research">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=600" alt="CMB Research">
+                        <div class="story-overlay">
+                            <button class="view-btn" onclick="openStoryModal(8)"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-category research">Research</span>
+                        <h3>Ancient Light Reveals Universe's Baby Picture</h3>
+                        <p>New analysis of the cosmic microwave background radiation unveils stunning details about the universe when it was just 380,000 years old...</p>
+                        <div class="story-footer">
+                            <span class="author"><i class="fas fa-user"></i> Dr. Rajesh Patel</span>
+                            <span class="views"><i class="fas fa-eye"></i> 71K views</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- NEW Story 9: Rogue Planets -->
+                <article class="story-card" data-category="facts">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1614314107768-6018061b5b72?w=600" alt="Rogue Planets">
+                        <div class="story-overlay">
+                            <button class="view-btn" onclick="openStoryModal(9)"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-category facts">Cosmic Fact</span>
+                        <h3>Billions of Rogue Planets Wander the Galaxy Alone</h3>
+                        <p>Discover the lonely wanderers of space: planets ejected from their solar systems, drifting through the cosmic void with no star to call home...</p>
+                        <div class="story-footer">
+                            <span class="author"><i class="fas fa-user"></i> Dr. Michael Torres</span>
+                            <span class="views"><i class="fas fa-eye"></i> 115K views</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- NEW Story 10: Magnetar -->
+                <article class="story-card" data-category="discoveries">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1614732414444-096e5f1122d5?w=600" alt="Magnetar">
+                        <div class="story-overlay">
+                            <button class="view-btn" onclick="openStoryModal(10)"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-category discoveries">Discovery</span>
+                        <h3>Most Powerful Magnet in Universe Detected</h3>
+                        <p>A magnetar with a magnetic field trillion times stronger than Earth's has been discovered. Its power could erase credit cards from halfway across the solar system...</p>
+                        <div class="story-footer">
+                            <span class="author"><i class="fas fa-user"></i> Prof. Anna Kowalski</span>
+                            <span class="views"><i class="fas fa-eye"></i> 142K views</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- NEW Story 11: Multiverse Theory -->
+                <article class="story-card" data-category="research">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600" alt="Multiverse">
+                        <div class="story-overlay">
+                            <button class="view-btn" onclick="openStoryModal(11)"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-category research">Research</span>
+                        <h3>New Evidence Hints at Parallel Universes</h3>
+                        <p>Quantum physics experiments suggest our universe might be just one of infinite parallel realities. What does this mean for the nature of existence itself?</p>
+                        <div class="story-footer">
+                            <span class="author"><i class="fas fa-user"></i> Dr. Sophia Zhang</span>
+                            <span class="views"><i class="fas fa-eye"></i> 203K views</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- NEW Story 12: Space-Time Crystals -->
+                <article class="story-card" data-category="facts">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?w=600" alt="Time Crystals">
+                        <div class="story-overlay">
+                            <button class="view-btn" onclick="openStoryModal(12)"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-category facts">Cosmic Fact</span>
+                        <h3>Time Crystals: Matter That Breaks Time Symmetry</h3>
+                        <p>Scientists have created a new phase of matter that repeats in time rather than space, defying our understanding of thermodynamics and opening quantum computing possibilities...</p>
+                        <div class="story-footer">
+                            <span class="author"><i class="fas fa-user"></i> Dr. Yuki Tanaka</span>
+                            <span class="views"><i class="fas fa-eye"></i> 87K views</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- NEW Story 13: Fast Radio Bursts -->
+                <article class="story-card" data-category="discoveries">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1484589065579-248aad0d8b13?w=600" alt="Radio Bursts">
+                        <div class="story-overlay">
+                            <button class="view-btn" onclick="openStoryModal(13)"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-category discoveries">Discovery</span>
+                        <h3>Mysterious Radio Signals From Deep Space Decoded</h3>
+                        <p>Fast radio bursts lasting milliseconds but containing the energy of 500 million suns have puzzled astronomers. Now we're closer to understanding their origin...</p>
+                        <div class="story-footer">
+                            <span class="author"><i class="fas fa-user"></i> Dr. Omar Hassan</span>
+                            <span class="views"><i class="fas fa-eye"></i> 176K views</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- NEW Story 14: Saturn's Rings -->
+                <article class="story-card" data-category="images">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?w=600" alt="Saturn">
+                        <div class="story-overlay">
+                            <button class="view-btn" onclick="openStoryModal(14)"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-category images">Gallery</span>
+                        <h3>Saturn's Rings Are Disappearing Before Our Eyes</h3>
+                        <p>Stunning new images reveal Saturn's iconic rings are being pulled into the planet by gravity. In 100 million years, they'll be gone forever...</p>
+                        <div class="story-footer">
+                            <span class="author"><i class="fas fa-user"></i> NASA/JPL</span>
+                            <span class="views"><i class="fas fa-eye"></i> 198K views</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- NEW Story 15: Quantum Entanglement in Space -->
+                <article class="story-card" data-category="research">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600" alt="Quantum">
+                        <div class="story-overlay">
+                            <button class="view-btn" onclick="openStoryModal(15)"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-category research">Research</span>
+                        <h3>Quantum Entanglement Achieved Across 1,200 km of Space</h3>
+                        <p>Scientists have successfully demonstrated quantum entanglement between Earth and satellite, paving the way for unhackable quantum internet...</p>
+                        <div class="story-footer">
+                            <span class="author"><i class="fas fa-user"></i> Dr. Li Wei</span>
+                            <span class="views"><i class="fas fa-eye"></i> 134K views</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- NEW Story 16: Cosmic Voids -->
+                <article class="story-card" data-category="facts">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=600" alt="Cosmic Void">
+                        <div class="story-overlay">
+                            <button class="view-btn" onclick="openStoryModal(16)"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-category facts">Cosmic Fact</span>
+                        <h3>The Supervoid: Largest Empty Space in the Universe</h3>
+                        <p>Meet the Boötes Void: a region of space 330 million light-years across containing only 60 galaxies. Most regions this size contain 2,000 galaxies...</p>
+                        <div class="story-footer">
+                            <span class="author"><i class="fas fa-user"></i> Prof. David Mitchell</span>
+                            <span class="views"><i class="fas fa-eye"></i> 95K views</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- NEW Story 17: Europa Ocean -->
+                <article class="story-card" data-category="discoveries">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1608889825271-9e0db97204ab?w=600" alt="Europa">
+                        <div class="story-overlay">
+                            <button class="view-btn" onclick="openStoryModal(17)"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-category discoveries">Discovery</span>
+                        <h3>Europa's Ocean May Harbor Alien Life Forms</h3>
+                        <p>Jupiter's moon Europa has twice as much water as all of Earth's oceans combined, hidden beneath an icy crust. New evidence suggests life could thrive there...</p>
+                        <div class="story-footer">
+                            <span class="author"><i class="fas fa-user"></i> Dr. Isabella Costa</span>
+                            <span class="views"><i class="fas fa-eye"></i> 221K views</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- NEW Story 18: Stellar Nursery -->
+                <article class="story-card" data-category="images">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=600" alt="Stellar Nursery">
+                        <div class="story-overlay">
+                            <button class="view-btn" onclick="openStoryModal(18)"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-category images">Gallery</span>
+                        <h3>Inside the Cosmic Womb: Where Stars Are Born</h3>
+                        <p>Journey into the Carina Nebula, a stellar nursery 7,500 light-years away where thousands of new stars are being born in clouds of gas and dust...</p>
+                        <div class="story-footer">
+                            <span class="author"><i class="fas fa-user"></i> ESO Observatory</span>
+                            <span class="views"><i class="fas fa-eye"></i> 167K views</span>
                         </div>
                     </div>
                 </article>
@@ -362,12 +502,22 @@
                     <i class="fas fa-moon"></i>
                     <p>Neutron stars can spin 600 times per second</p>
                 </div>
+                <div class="fact-card">
+                    <i class="fas fa-satellite"></i>
+                    <p>One teaspoon of neutron star material weighs 6 billion tons</p>
+                </div>
+                <div class="fact-card">
+                    <i class="fas fa-space-shuttle"></i>
+                    <p>There are more stars in the universe than grains of sand on all Earth's beaches</p>
+                </div>
             </div>
             <div class="carousel-dots">
                 <span class="dot active" onclick="showFact(0)"></span>
                 <span class="dot" onclick="showFact(1)"></span>
                 <span class="dot" onclick="showFact(2)"></span>
                 <span class="dot" onclick="showFact(3)"></span>
+                <span class="dot" onclick="showFact(4)"></span>
+                <span class="dot" onclick="showFact(5)"></span>
             </div>
         </div>
     </section>
@@ -396,6 +546,204 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Category filtering
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const category = this.dataset.category;
+                const cards = document.querySelectorAll('.story-card');
+                let visibleCount = 0;
+                
+                cards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                document.getElementById('noResults').style.display = visibleCount === 0 ? 'block' : 'none';
+            });
+        });
+
+        // Facts carousel
+        let currentFact = 0;
+        const facts = document.querySelectorAll('.fact-card');
+        const dots = document.querySelectorAll('.dot');
+
+        function showFact(index) {
+            facts.forEach(f => f.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            
+            facts[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentFact = index;
+        }
+
+        setInterval(() => {
+            currentFact = (currentFact + 1) % facts.length;
+            showFact(currentFact);
+        }, 5000);
+
+        // Modal functionality
+        const modal = document.getElementById('storyModal');
+        const closeBtn = document.getElementById('closeStoryModal');
+
+        function openStoryModal(storyId) {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            const stories = {
+                0: {
+                    title: "Supermassive Black Hole Discovered at Dawn of Universe",
+                    category: "Astrophysics Research",
+                    date: "October 1, 2025",
+                    author: "International Astronomy Team",
+                    image: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800",
+                    content: `
+                        <h2>Supermassive Black Hole Discovered at Dawn of Universe</h2>
+                        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800" alt="Black Hole">
+                        <div class="story-meta">
+                            <span><i class="fas fa-user"></i> International Astronomy Team</span>
+                            <span><i class="far fa-calendar"></i> October 1, 2025</span>
+                            <span><i class="far fa-clock"></i> 8 min read</span>
+                        </div>
+                        <p>In a groundbreaking discovery that challenges our understanding of cosmic evolution, astronomers have detected one of the most massive black holes ever observed, existing merely 470 million years after the Big Bang. This supermassive black hole, weighing in at approximately 1.6 billion solar masses, shouldn't exist according to current theoretical models.</p>
+                        
+                        <h3>The Discovery</h3>
+                        <p>Using the James Webb Space Telescope's unprecedented infrared capabilities, researchers identified the black hole by analyzing the light from a quasar—an extremely luminous active galactic nucleus powered by material falling into the black hole. The redshift measurements indicate this cosmic giant formed during what cosmologists call the "Cosmic Dawn," when the first stars and galaxies were just beginning to illuminate the universe.</p>
+                        
+                        <h3>Why This Changes Everything</h3>
+                        <p>Current models suggest that supermassive black holes grow gradually through two main processes: accretion of matter and mergers with other black holes. However, this newly discovered behemoth appears to have grown far too quickly for these mechanisms alone. At the age of the universe when this black hole existed, there simply wasn't enough time for it to accumulate such massive amounts of matter through conventional means.</p>
+                        
+                        <h3>New Theories Emerge</h3>
+                        <p>This discovery has sparked intense debate within the astrophysics community. Several new theories are being proposed:</p>
+                        <ul>
+                            <li>Direct collapse black holes: Instead of forming from stellar remnants, these black holes might have formed directly from massive clouds of primordial gas</li>
+                            <li>Super-Eddington accretion: The black hole may have consumed matter at rates far exceeding previously thought possible limits</li>
+                            <li>Primordial black hole seeds: Perhaps the early universe contained larger "seed" black holes than we imagined</li>
+                        </ul>
+                        
+                        <h3>Implications for Galaxy Formation</h3>
+                        <p>This discovery has profound implications for our understanding of how galaxies form and evolve. Supermassive black holes are thought to play crucial roles in regulating star formation in their host galaxies. Finding such a massive black hole so early in cosmic history suggests that these gravitational monsters may have been even more influential in shaping the early universe than previously believed.</p>
+                        
+                        <p>As we continue to peer deeper into space and further back in time, discoveries like this remind us that the universe still holds many secrets waiting to be unveiled.</p>
+                    `
+                },
+                1: {
+                    title: "Dark Matter's Hidden Signature Finally Detected",
+                    content: `
+                        <h2>Dark Matter's Hidden Signature Finally Detected</h2>
+                        <img src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=800" alt="Dark Matter">
+                        <div class="story-meta">
+                            <span><i class="fas fa-user"></i> Dr. Sarah Chen</span>
+                            <span><i class="far fa-calendar"></i> September 28, 2025</span>
+                        </div>
+                        <p>After decades of searching, scientists at CERN have detected signals that may finally prove the existence of dark matter particles. The Large Hadron Collider experiments revealed anomalous energy signatures consistent with theoretical predictions for dark matter interactions.</p>
+                        
+                        <h3>The Invisible Universe</h3>
+                        <p>Dark matter makes up approximately 85% of all matter in the universe, yet it has remained frustratingly elusive. It doesn't emit, absorb, or reflect light, making it invisible to traditional telescopes. We only know it exists through its gravitational effects on visible matter, radiation, and the structure of the universe.</p>
+                        
+                        <h3>The Breakthrough</h3>
+                        <p>The detection came through a series of high-energy particle collisions that produced missing energy—a telltale sign that particles escaped detection because they interact only weakly with ordinary matter. The signature matches predictions for WIMPs (Weakly Interacting Massive Particles), one of the leading dark matter candidates.</p>
+                        
+                        <p>While confirmation requires additional experiments and peer review, this discovery represents a potential turning point in one of physics' greatest mysteries. Understanding dark matter could revolutionize our comprehension of the universe's structure, evolution, and ultimate fate.</p>
+                    `
+                },
+                7: {
+                    title: "Neutron Star Collision Creates Gold Rush in Space",
+                    content: `
+                        <h2>Neutron Star Collision Creates Gold Rush in Space</h2>
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800" alt="Neutron Stars">
+                        <div class="story-meta">
+                            <span><i class="fas fa-user"></i> Dr. Elena Vasquez</span>
+                            <span><i class="far fa-calendar"></i> September 25, 2025</span>
+                        </div>
+                        <p>Witness the ultimate cosmic forge: when two neutron stars collide, they create more gold than exists in our entire solar system in mere seconds. This violent merger, detected 130 million light-years away, has provided unprecedented insights into how heavy elements are born.</p>
+                        
+                        <h3>The Cosmic Kiln</h3>
+                        <p>Neutron stars are the collapsed cores of massive stars—so dense that a teaspoon of their material weighs as much as Mount Everest. When two of these stellar remnants spiral into each other, the temperatures and pressures reach unimaginable extremes, triggering a process called rapid neutron capture (r-process nucleosynthesis).</p>
+                        
+                        <h3>Birth of Heavy Elements</h3>
+                        <p>This collision ejected material equivalent to several Jupiter masses into space, including:</p>
+                        <ul>
+                            <li>10 Earth masses of gold and platinum</li>
+                            <li>Uranium and other actinides</li>
+                            <li>Rare earth elements crucial for technology</li>
+                        </ul>
+                        
+                        <p>Every gold ring, platinum catalyst, and uranium fuel rod on Earth was forged in collisions like this billions of years ago. We are literally made of stardust from the most violent events in the cosmos.</p>
+                    `
+                },
+                11: {
+                    title: "New Evidence Hints at Parallel Universes",
+                    content: `
+                        <h2>New Evidence Hints at Parallel Universes</h2>
+                        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800" alt="Multiverse">
+                        <div class="story-meta">
+                            <span><i class="fas fa-user"></i> Dr. Sophia Zhang</span>
+                            <span><i class="far fa-calendar"></i> September 20, 2025</span>
+                        </div>
+                        <p>Quantum physics experiments at multiple laboratories have produced results suggesting our universe might be just one of infinite parallel realities. The implications are staggering and challenge our very understanding of existence.</p>
+                        
+                        <h3>The Many-Worlds Interpretation</h3>
+                        <p>According to quantum mechanics, particles exist in multiple states simultaneously until observed. The many-worlds interpretation suggests that all possible outcomes actually occur—each in its own separate universe. Every quantum measurement causes the universe to split into multiple branches.</p>
+                        
+                        <h3>The New Evidence</h3>
+                        <p>Recent experiments with quantum computers have detected interference patterns that some physicists interpret as interactions between parallel universes. While controversial, these findings align with predictions made by many-worlds theory.</p>
+                        
+                        <h3>What It Means</h3>
+                        <p>If parallel universes exist, it would mean:</p>
+                        <ul>
+                            <li>Every possible version of history actually happened</li>
+                            <li>Infinite versions of you exist making different choices</li>
+                            <li>The universe is far stranger than we ever imagined</li>
+                        </ul>
+                        
+                        <p>While definitive proof remains elusive, these experiments open fascinating new avenues for understanding the nature of reality itself.</p>
+                    `
+                }
+            };
+            
+            const story = stories[storyId] || stories[0];
+            document.getElementById('modalStoryContent').innerHTML = story.content;
+        }
+
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Load more functionality
+        document.getElementById('loadMoreBtn').addEventListener('click', function() {
+            alert('More cosmic stories coming soon! Stay tuned for updates on the latest discoveries from across the universe.');
+        });
+
+        // Newsletter form
+        document.getElementById('cosmicNewsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            alert(`Thank you for subscribing! We'll send cosmic updates to ${email}`);
+            this.reset();
+        });
+
+        // Smooth scroll for indicator
+        document.querySelector('.scroll-indicator').addEventListener('click', function() {
+            document.querySelector('.featured-story').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
 
     <!-- Footer -->
     <footer class="footer">
@@ -438,10 +786,5 @@
             </div>
         </div>
     </footer>
-
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="modal-auth.js"></script>
-    <script src="script.js"></script>
-    <script src="cosmic-stories.js"></script>
 </body>
 </html>
